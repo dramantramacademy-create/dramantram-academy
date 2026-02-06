@@ -1,11 +1,12 @@
 import React from 'react';
-import { Figma, Video, PenTool, CheckCircle2, ArrowRight, MonitorPlay } from 'lucide-react';
+import { Figma, Video, PenTool, CheckCircle2, ArrowRight, MonitorPlay, Briefcase } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const COURSES = [
   {
     id: '1',
     slug: 'visual-communication',
+    careerPath: '/careers/graphic-design',
     category: 'DESIGN',
     title: 'Visual Communication',
     duration: '3-4 Months',
@@ -17,6 +18,7 @@ const COURSES = [
   {
     id: '2',
     slug: 'ui-ux-design',
+    careerPath: '/careers/ui-ux',
     category: 'PRODUCT',
     title: 'UI/UX Design',
     duration: '3-4 Months',
@@ -28,6 +30,7 @@ const COURSES = [
   {
     id: '3',
     slug: 'animation-vfx',
+    careerPath: '/careers/animation',
     category: 'MOTION',
     title: 'Animation & VFX',
     duration: '3-4 Months',
@@ -39,6 +42,7 @@ const COURSES = [
   {
     id: '4',
     slug: 'video-editing',
+    careerPath: '/careers/video-editing',
     category: 'PRODUCTION',
     title: 'Video Editing',
     duration: '3-4 Months',
@@ -78,11 +82,11 @@ const Courses: React.FC = () => {
               </div>
               
               <h3 className="oswald text-2xl font-black uppercase mb-4 leading-tight group-hover:text-[#FF0000] transition-colors">{course.title}</h3>
-              <p className="text-gray-400 text-sm mb-8 leading-relaxed font-medium">
+              <p className="text-gray-400 text-sm mb-8 leading-relaxed font-medium min-h-[60px]">
                 {course.desc}
               </p>
 
-              <div className="space-y-3 mb-10 w-full">
+              <div className="space-y-3 mb-8 w-full">
                 {course.features.map((f, i) => (
                   <div key={i} className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-wider text-gray-400">
                     <CheckCircle2 size={14} className="text-red-500" />
@@ -91,12 +95,20 @@ const Courses: React.FC = () => {
                 ))}
               </div>
 
-              <Link 
-                to={`/courses/${course.slug}`}
-                className="mt-auto flex items-center justify-between w-full py-4 px-6 bg-red-950/20 border border-red-500/20 rounded-xl font-black uppercase tracking-widest text-[10px] group-hover:bg-[#FF0000] group-hover:text-white group-hover:border-[#FF0000] transition-all"
-              >
-                View Details <ArrowRight size={14} />
-              </Link>
+              <div className="mt-auto flex flex-col gap-3 w-full">
+                <Link 
+                  to={`/courses/${course.slug}`}
+                  className="flex items-center justify-center gap-2 w-full py-4 px-6 bg-red-950/20 border border-red-500/20 rounded-xl font-black uppercase tracking-widest text-[10px] hover:bg-[#FF0000] hover:text-white hover:border-[#FF0000] transition-all"
+                >
+                  View Details <ArrowRight size={14} />
+                </Link>
+                <Link 
+                  to={course.careerPath}
+                  className="flex items-center justify-center gap-2 w-full py-4 px-6 bg-white/5 border border-white/10 rounded-xl font-black uppercase tracking-widest text-[10px] hover:border-[#FFD700] hover:text-[#FFD700] transition-all"
+                >
+                  View Career Options <Briefcase size={14} />
+                </Link>
+              </div>
             </div>
           ))}
         </div>

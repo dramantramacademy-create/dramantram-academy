@@ -22,7 +22,6 @@ const Footer: React.FC = () => {
             <div className="w-12 h-12 bg-[#FF0000] rounded-xl transform rotate-45 flex items-center justify-center shadow-[0_0_20px_rgba(255,0,0,0.4)] group-hover:rotate-0 transition-all duration-500">
               <img
                 src="/dramantram-logo.png"
-                alt="Dramantram Logo"
                 className="text-white font-black oswald text-2xl -rotate-45 group-hover:rotate-0 transition-all duration-500"
               />
             </div>
@@ -79,6 +78,30 @@ const Footer: React.FC = () => {
             </li>
             <li>
               <Link
+                to="/vision-philosophy"
+                className="hover:text-red-500 transition-colors flex items-center justify-between group"
+              >
+                Vision & Philosophy{" "}
+                <ArrowUpRight
+                  size={14}
+                  className="opacity-0 group-hover:opacity-100 transition-opacity"
+                />
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/why-choose-us"
+                className="hover:text-red-500 transition-colors flex items-center justify-between group"
+              >
+                Why Choose Us{" "}
+                <ArrowUpRight
+                  size={14}
+                  className="opacity-0 group-hover:opacity-100 transition-opacity"
+                />
+              </Link>
+            </li>
+            <li>
+              <Link
                 to="/courses"
                 className="hover:text-red-500 transition-colors flex items-center justify-between group"
               >
@@ -91,10 +114,10 @@ const Footer: React.FC = () => {
             </li>
             <li>
               <Link
-                to="/mentors"
+                to="/alumni"
                 className="hover:text-red-500 transition-colors flex items-center justify-between group"
               >
-                Meet Mentors{" "}
+                Alumni Success{" "}
                 <ArrowUpRight
                   size={14}
                   className="opacity-0 group-hover:opacity-100 transition-opacity"
@@ -103,10 +126,10 @@ const Footer: React.FC = () => {
             </li>
             <li>
               <Link
-                to="/about"
+                to="/career-support"
                 className="hover:text-red-500 transition-colors flex items-center justify-between group"
               >
-                Student Stories{" "}
+                Career Support{" "}
                 <ArrowUpRight
                   size={14}
                   className="opacity-0 group-hover:opacity-100 transition-opacity"
@@ -115,10 +138,10 @@ const Footer: React.FC = () => {
             </li>
             <li>
               <Link
-                to="/about"
+                to="/admissions"
                 className="hover:text-red-500 transition-colors flex items-center justify-between group"
               >
-                Contact Us{" "}
+                Admissions{" "}
                 <ArrowUpRight
                   size={14}
                   className="opacity-0 group-hover:opacity-100 transition-opacity"
@@ -148,7 +171,7 @@ const Footer: React.FC = () => {
                 Admissions
               </div>
               <div className="text-xs font-black text-white break-all">
-                admission@dramantramacademy.com
+                admission@dramantram.com
               </div>
             </div>
           </div>

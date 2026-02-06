@@ -4,8 +4,9 @@ import { NavLink, Link } from "react-router-dom";
 const Header: React.FC = () => {
   const navItems = [
     { label: "Home", path: "/" },
+    { label: "Portfolio", path: "/portfolio" },
     { label: "Bootcamp", path: "/bootcamp" },
-    { label: "About Us", path: "/about" },
+    { label: "About", path: "/about" },
     { label: "Courses", path: "/courses" },
     { label: "Mentors", path: "/mentors" },
   ];
@@ -16,7 +17,7 @@ const Header: React.FC = () => {
         <Link to="/" className="flex items-center gap-3">
           <img
             src="/dramantram-logo.png"
-            className="w-12 h-auto logo-mask"
+            className="w-10 md:w-12 h-auto logo-mask"
             viewBox="0 0 100 50"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -41,12 +42,10 @@ const Header: React.FC = () => {
                 ${isActive ? "text-[#FFD700]" : "text-white hover:text-[#FFD700]"}
               `}
             >
-              {/* Fix: NavLink children as a function to access isActive state for all internal elements */}
               {({ isActive }) => (
                 <>
                   {item.label}
                   <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#FFD700] transition-all group-hover:w-full"></span>
-                  {/* Permanent underline for active state */}
                   {isActive && (
                     <span className="absolute -bottom-1 left-0 w-full h-[1px] bg-[#FFD700]"></span>
                   )}
@@ -57,14 +56,18 @@ const Header: React.FC = () => {
         </nav>
 
         <div className="flex items-center gap-4">
-          <button className="hidden md:block text-[10px] font-bold uppercase tracking-widest text-[#FFD700] hover:text-white transition-colors">
-            Enquiry Form
-          </button>
-          <a
-            href="#apply"
-            className="px-5 py-2 md:px-6 md:py-2.5 bg-[#FF0000] text-white text-[10px] md:text-[11px] font-bold uppercase tracking-widest rounded-lg hover:bg-[#d00000] hover:shadow-[0_0_20px_rgba(255,0,0,0.6)] transition-all"
+          <Link
+            to="/admissions"
+            className="hidden md:block text-[10px] font-bold uppercase tracking-widest text-[#FFD700] hover:text-white transition-colors"
           >
             Apply Now
+          </Link>
+          <a
+            href="https://wa.me/919140110443"
+            target="_blank"
+            className="px-5 py-2 md:px-6 md:py-2.5 bg-[#FF0000] text-white text-[10px] md:text-[11px] font-bold uppercase tracking-widest rounded-lg hover:bg-[#d00000] hover:shadow-[0_0_20px_rgba(255,0,0,0.6)] transition-all"
+          >
+            WhatsApp
           </a>
         </div>
       </div>
