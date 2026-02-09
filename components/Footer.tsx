@@ -66,6 +66,18 @@ const Footer: React.FC = () => {
           <ul className="space-y-5 text-gray-500 text-[11px] font-black uppercase tracking-widest">
             <li>
               <Link
+                to="/brochure"
+                className="text-[#FFD700] hover:text-white transition-colors flex items-center justify-between group"
+              >
+                Digital Brochure{" "}
+                <ArrowUpRight
+                  size={14}
+                  className="opacity-0 group-hover:opacity-100 transition-opacity"
+                />
+              </Link>
+            </li>
+            <li>
+              <Link
                 to="/about"
                 className="hover:text-red-500 transition-colors flex items-center justify-between group"
               >
