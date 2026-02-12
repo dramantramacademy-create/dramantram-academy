@@ -7,7 +7,7 @@ const Header: React.FC = () => {
     { label: "Portfolio", path: "/portfolio" },
     { label: "Bootcamp", path: "/bootcamp" },
     { label: "About", path: "/about" },
-    { label: "Courses", path: "/courses" },
+    { label: "Programs", path: "/programs" },
     { label: "Mentors", path: "/mentors" },
   ];
 
@@ -62,8 +62,9 @@ const Header: React.FC = () => {
           >
             Apply Now
           </Link>
+          {/* https://wa.me/919140110443   */}
           <a
-            href="https://wa.me/919140110443"
+            href="https://chat.whatsapp.com/GT8IRbAU0H3GXw7syc9w6n"
             target="_blank"
             className="px-5 py-2 md:px-6 md:py-2.5 bg-[#FF0000] text-white text-[10px] md:text-[11px] font-bold uppercase tracking-widest rounded-lg hover:bg-[#d00000] hover:shadow-[0_0_20px_rgba(255,0,0,0.6)] transition-all"
           >

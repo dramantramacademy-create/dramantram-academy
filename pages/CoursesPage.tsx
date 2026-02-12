@@ -1,6 +1,6 @@
-import React from 'react';
-import Courses from '../components/Courses';
-import { Briefcase, GraduationCap, Zap } from 'lucide-react';
+import React from "react";
+import Courses from "../components/Courses";
+import { Briefcase, GraduationCap, Zap } from "lucide-react";
 
 const CoursesPage: React.FC = () => {
   return (
@@ -9,10 +9,11 @@ const CoursesPage: React.FC = () => {
         <div className="absolute inset-0 bg-red-radial opacity-20"></div>
         <div className="max-w-7xl mx-auto px-6 text-center relative z-10">
           <h1 className="oswald text-6xl md:text-8xl font-black uppercase tracking-tighter mb-6 animate-fade-in-up">
-            The <span className="text-[#FFD700]">Bootcamps.</span>
+            CREATIVE <span className="text-[#FFD700]">PROGRAMS.</span>
           </h1>
           <p className="text-gray-400 max-w-3xl mx-auto text-lg md:text-xl font-medium leading-relaxed animate-fade-in-up animation-delay-200">
-            Intensive, practical, and agency-led. Our 3-4 month programs in Lucknow are built to transform raw passion into studio-ready expertise.
+            Hands-on, studio-led programs designed to help you learn faster and
+            build real creative skills.
           </p>
         </div>
       </div>
@@ -25,7 +26,9 @@ const CoursesPage: React.FC = () => {
                 <Zap size={24} />
               </div>
               <div>
-                <div className="text-[10px] font-black uppercase text-gray-500 tracking-widest">Speed</div>
+                <div className="text-[10px] font-black uppercase text-gray-500 tracking-widest">
+                  Speed
+                </div>
                 <div className="text-sm font-bold">3-4 Month Intensive</div>
               </div>
             </div>
@@ -34,7 +37,9 @@ const CoursesPage: React.FC = () => {
                 <Briefcase size={24} />
               </div>
               <div>
-                <div className="text-[10px] font-black uppercase text-gray-500 tracking-widest">Outcome</div>
+                <div className="text-[10px] font-black uppercase text-gray-500 tracking-widest">
+                  Outcome
+                </div>
                 <div className="text-sm font-bold">Placement Guidance</div>
               </div>
             </div>
@@ -43,7 +48,9 @@ const CoursesPage: React.FC = () => {
                 <GraduationCap size={24} />
               </div>
               <div>
-                <div className="text-[10px] font-black uppercase text-gray-500 tracking-widest">Mentors</div>
+                <div className="text-[10px] font-black uppercase text-gray-500 tracking-widest">
+                  Mentors
+                </div>
                 <div className="text-sm font-bold">Working Professionals</div>
               </div>
             </div>
@@ -55,22 +62,39 @@ const CoursesPage: React.FC = () => {
 
       <section className="py-24 bg-white/5 border-y border-white/5 reveal">
         <div className="max-w-5xl mx-auto px-6 text-center">
-          <h2 className="oswald text-4xl font-bold uppercase mb-8">Internship & Career Support</h2>
+          <h2 className="oswald text-4xl font-bold uppercase mb-8">
+            Internship & Career Support
+          </h2>
           <p className="text-gray-400 text-lg leading-relaxed mb-10 font-medium">
-            Graduates don't just leave with a certificate; they leave with a professional trajectory. We provide active internship guidance and connect our best students with top-tier creative agencies and studios.
+            Graduates don't just leave with a certificate; they leave with a
+            professional trajectory. We provide active internship guidance and
+            connect our best students with top-tier creative agencies and
+            studios.
           </p>
           <div className="flex flex-wrap justify-center gap-8">
             <div className="text-center group">
-              <div className="text-3xl font-black oswald text-[#FFD700] group-hover:scale-110 transition-transform">100%</div>
-              <div className="text-[10px] font-bold uppercase text-gray-500 tracking-widest">Portfolio Review</div>
+              <div className="text-3xl font-black oswald text-[#FFD700] group-hover:scale-110 transition-transform">
+                100%
+              </div>
+              <div className="text-[10px] font-bold uppercase text-gray-500 tracking-widest">
+                Portfolio Review
+              </div>
             </div>
             <div className="text-center group">
-              <div className="text-3xl font-black oswald text-[#FF0000] group-hover:scale-110 transition-transform">Agency</div>
-              <div className="text-[10px] font-bold uppercase text-gray-500 tracking-widest">Network Access</div>
+              <div className="text-3xl font-black oswald text-[#FF0000] group-hover:scale-110 transition-transform">
+                Agency
+              </div>
+              <div className="text-[10px] font-bold uppercase text-gray-500 tracking-widest">
+                Network Access
+              </div>
             </div>
             <div className="text-center group">
-              <div className="text-3xl font-black oswald text-[#FFD700] group-hover:scale-110 transition-transform">Real</div>
-              <div className="text-[10px] font-bold uppercase text-gray-500 tracking-widest">Live Projects</div>
+              <div className="text-3xl font-black oswald text-[#FFD700] group-hover:scale-110 transition-transform">
+                Real
+              </div>
+              <div className="text-[10px] font-bold uppercase text-gray-500 tracking-widest">
+                Live Projects
+              </div>
             </div>
           </div>
         </div>

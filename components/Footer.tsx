@@ -4,6 +4,7 @@ import {
   Youtube,
   Twitter,
   Linkedin,
+  Facebook,
   MapPin,
   Phone,
   Mail,
@@ -12,6 +13,30 @@ import {
 import { Link } from "react-router-dom";
 
 const Footer: React.FC = () => {
+  const socialLinks = [
+    {
+      Icon: Instagram,
+      href: "https://www.instagram.com/dramantramacademy/",
+      label: "Instagram",
+    },
+    {
+      Icon: Youtube,
+      href: "https://www.youtube.com/@DramantramAcademy",
+      label: "Youtube",
+    },
+    { Icon: Twitter, href: "https://x.com/DramantramAcad", label: "Twitter" },
+    {
+      Icon: Linkedin,
+      href: "https://www.linkedin.com/company/dramantram-academy/",
+      label: "Linkedin",
+    },
+    {
+      Icon: Facebook,
+      href: "https://www.facebook.com/profile.php?id=61586309900239",
+      label: "Facebook",
+    },
+  ];
+
   return (
     <footer className="bg-black pt-32 pb-16 border-t border-red-900/10 relative overflow-hidden">
       <div className="absolute bottom-0 right-0 w-[50%] h-[50%] bg-[#FF0000]/10 blur-[150px] -z-10"></div>
@@ -36,9 +61,11 @@ const Footer: React.FC = () => {
           </Link>
 
           <p className="text-gray-400 max-w-sm mb-12 text-lg leading-relaxed font-medium">
-            Lucknow's place for students who want to{" "}
-            <span className="text-white">learn by doing</span>. We focus on real
-            skills, agency mentorship, and creative confidence.
+            <span className="text-white"> Dramantram Academy</span> is a place
+            for students who want to actually learn by doing. Instead of just
+            theory, we focus on real skills, real projects, and mentorship that
+            helps you grow with confidence. It’s where creativity turns into
+            something practical, professional, and meaningful.
           </p>
 
           <div className="space-y-6">
@@ -174,7 +201,7 @@ const Footer: React.FC = () => {
                 Inquiry
               </div>
               <div className="text-base font-black text-white">
-                +91 91401 10443
+                +91 95995 71599
               </div>
             </div>
             <div className="gloss-card p-8 rounded-3xl border-red-500/10 hover:border-red-500/40">
@@ -189,10 +216,12 @@ const Footer: React.FC = () => {
           </div>
 
           <div className="flex gap-4">
-            {[Instagram, Youtube, Twitter, Linkedin].map((Icon, idx) => (
+            {socialLinks.map(({ Icon, href, label }) => (
               <a
-                key={idx}
-                href="#"
+                key={label} // Using label as a key is better than index
+                href={href}
+                target="_blank" // Opens in a new tab
+                rel="noopener noreferrer" // Security best practice for external links
                 className="w-14 h-14 rounded-2xl gloss-card border-red-500/10 flex items-center justify-center text-gray-500 hover:text-white hover:bg-[#FF0000] hover:border-[#FF0000] hover:scale-110 transition-all"
               >
                 <Icon size={22} />

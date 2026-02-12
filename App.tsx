@@ -32,14 +32,14 @@ const App: React.FC = () => {
           <Route path="vision-philosophy" element={<VisionPhilosophyPage />} />
           <Route path="why-choose-us" element={<WhyChooseUsPage />} />
           <Route path="portfolio" element={<PortfolioPage />} />
-          <Route path="courses" element={<CoursesPage />} />
+          <Route path="programs" element={<CoursesPage />} />
           <Route
-            path="courses/visual-communication"
+            path="programs/visual-communication"
             element={<VisualCommunicationPage />}
           />
-          <Route path="courses/ui-ux-design" element={<UiUxPage />} />
-          <Route path="courses/animation-vfx" element={<AnimationVfxPage />} />
-          <Route path="courses/video-editing" element={<VideoEditingPage />} />
+          <Route path="programs/ui-ux-design" element={<UiUxPage />} />
+          <Route path="programs/animation-vfx" element={<AnimationVfxPage />} />
+          <Route path="programs/video-editing" element={<VideoEditingPage />} />
           <Route
             path="careers/graphic-design"
             element={<GraphicDesignCareer />}
