@@ -35,18 +35,18 @@ const ValueProp: React.FC = () => {
             </div>
           </div>
 
-          <div className="relative flex justify-center lg:justify-end py-12 lg:py-0 group">
-            <div className="relative w-full max-w-md aspect-square bg-[url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/India_map_blank.svg/800px-India_map_blank.svg.png')] bg-contain bg-no-repeat bg-center opacity-20 grayscale invert group-hover:opacity-40 transition-opacity duration-700"></div>
+          <div className="relative flex justify-center lg:justify-end py-1 lg:py-0 group overflow-hidden">
+            {/* Changed aspect-square to aspect-video to reduce vertical footprint */}
+            <div className="relative w-full max-w-md aspect-video bg-[url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/India_map_blank.svg/800px-India_map_blank.svg.png')] bg-contain bg-no-repeat bg-center opacity-20 grayscale invert group-hover:opacity-40 transition-opacity duration-700"></div>
 
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 lg:left-auto lg:right-0 lg:translate-x-0 text-center lg:text-right">
-              <div className="text-7xl md:text-9xl font-black oswald leading-none text-[#FF0000] group-hover:scale-110 transition-transform duration-700">
+              {/* Reduced text size slightly for better fit in the shorter container */}
+              <div className="text-6xl md:text-8xl font-black oswald leading-none text-[#FF0000] group-hover:scale-105 transition-transform duration-700">
                 60%
               </div>
-              <div className="text-xs md:text-sm font-bold text-gray-400 uppercase max-w-[220px] ml-auto">
+              <div className="text-[10px] md:text-xs font-bold text-gray-400 uppercase max-w-[200px] ml-auto">
                 of Indian creatives lacking professional training. <br />
-                <span className="text-[10px] text-[#FFD700]">
-                  — NSDC Report
-                </span>
+                <span className="text-[9px] text-[#FFD700]">— NSDC Report</span>
               </div>
             </div>
           </div>
