@@ -35,18 +35,21 @@ const FinalCTA: React.FC = () => {
           {/* REDUCED: mb-20 changed to mb-10 */}
           <div className="flex flex-col sm:flex-row justify-center gap-6 mb-10 relative z-10">
             <a
-              href="#apply"
+              href="https://chat.whatsapp.com/GT8IRbAU0H3GXw7syc9w6n"
               className="px-10 md:px-14 py-5 md:py-6 bg-[#FF0000] text-white font-black uppercase tracking-[0.2em] text-[12px] md:text-[13px] rounded-2xl hover:shadow-[0_0_50px_rgba(255,0,0,0.6)] hover:scale-105 transition-all flex items-center justify-center gap-3"
             >
               Apply Now <ArrowRight size={20} />
             </a>
-            <button className="px-10 md:px-14 py-5 md:py-6 bg-white/5 border border-white/10 text-white font-black uppercase tracking-[0.2em] text-[12px] md:text-[13px] rounded-2xl hover:bg-white/10 transition-all flex items-center justify-center gap-3 group">
+            <a
+              href="/admissions"
+              className="px-10 md:px-14 py-5 md:py-6 bg-white/5 border border-white/10 text-white font-black uppercase tracking-[0.2em] text-[12px] md:text-[13px] rounded-2xl hover:bg-white/10 transition-all flex items-center justify-center gap-3 group"
+            >
               <Mail
                 size={20}
                 className="group-hover:rotate-12 transition-transform"
               />{" "}
               Enquiry Form
-            </button>
+            </a>
           </div>
 
           {/* REDUCED: pt-12 changed to pt-8 */}
