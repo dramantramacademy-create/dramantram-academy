@@ -1,69 +1,70 @@
 import React from "react";
 import { ExternalLink } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const WORK = [
   {
     id: 1,
+    slug: "excellence-driving-office",
     title: "Excellence Driving Office",
-    category: "Architectural Visualization", // Updated to match "Professional architectural rendering"
+    category: "Architectural Visualization",
     img: "https://cdna.artstation.com/p/assets/images/images/092/559/216/large/mohammx-shadab-ed-building-01-v02.webp?1759994069",
-    link: "https://www.artstation.com/artwork/5Wwlaw",
   },
   {
     id: 2,
+    slug: "crompton-iron-3d",
     title: "Crompton Iron 3D",
-    category: "Product Visualization", // Updated to match "3D Product Render Services"
+    category: "Product Visualization",
     img: "https://cdna.artstation.com/p/assets/images/images/068/608/548/large/mohammx-shadab-cr-001.jpg?1698234111",
-    link: "https://www.artstation.com/artwork/4926Gq",
   },
   {
     id: 3,
+    slug: "living-room-interior",
     title: "Living Room Interior",
-    category: "Interior Rendering", // Updated to reflect modern aesthetics and tranquility
+    category: "Interior Rendering",
     img: "https://cdna.artstation.com/p/assets/images/images/068/491/146/large/mohammx-shadab-r-001.jpg?1697955558",
-    link: "https://www.artstation.com/artwork/zP1bD4",
   },
   {
     id: 4,
+    slug: "jungle-statue",
     title: "The Jungle Statue",
-    category: "3D Animation", // Focused on precision, foliage, and lighting
+    category: "3D Animation",
     img: "https://cdnb.artstation.com/p/assets/images/images/068/394/991/large/mohammx-shadab-statue-in-a-jungle-scene-01.jpg?1697696926",
-    link: "https://www.artstation.com/artwork/obmv6O",
   },
   {
     id: 5,
+    slug: "enchanted-jungle",
     title: "Enchanted Jungle",
-    category: "Environment Rendering", // Capturing the essence of vibrant greenery and lifelike atmosphere
+    category: "Environment Rendering",
     img: "https://cdna.artstation.com/p/assets/images/images/068/394/674/large/mohammx-shadab-landscape-02.jpg?1697696027",
-    link: "https://www.artstation.com/artwork/GeZy6d",
   },
   {
     id: 6,
+    slug: "modern-office-interior",
     title: "Modern Office Interior",
-    category: "Interior Design", // Focused on functional and professional office environments
+    category: "Interior Design",
     img: "https://cdna.artstation.com/p/assets/images/images/068/394/342/large/mohammx-shadab-r-0006.jpg?1697695107",
-    link: "https://www.artstation.com/artwork/RyQGDE",
   },
   {
-    id: 7,
+    id: 2,
+    slug: "aventador-forest-run",
     title: "Aventador Forest Run",
-    category: "Automotive CGI", // Focused on cinematic car rendering and environment integration
+    category: "Automotive CGI",
     img: "https://cdna.artstation.com/p/assets/images/images/068/354/972/large/mohammx-shadab-back-shot-single.jpg?1697607199",
-    link: "https://www.artstation.com/artwork/49BOdl",
   },
   {
     id: 8,
+    slug: "mountain-bike-3d",
     title: "Mountain Bike 3D",
-    category: "Product Animation", // Highlighting technical precision and studio-ready production
+    category: "Product Animation",
     img: "https://cdna.artstation.com/p/assets/images/images/068/370/236/large/mohammx-shadab-bicycle-01.jpg?1697639405",
-    link: "https://www.artstation.com/artwork/49BQD4",
   },
   {
     id: 9,
+    slug: "cinematic-living-space",
     title: "Cinematic Living Space",
-    category: "ArchViz Animation", // Focused on the transition from raw render to color-corrected masterpiece
+    category: "ArchViz Animation",
     img: "https://cdnb.artstation.com/p/assets/images/images/068/371/451/large/mohammx-shadab-room-arcviz-02.jpg?1697641827",
-    link: "https://www.artstation.com/artwork/m8wRq9",
   },
 ];
 
@@ -95,12 +96,10 @@ const Portfolio: React.FC = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
           {WORK.map((item) => (
-            <a
+            <Link
               key={item.id}
-              href={item.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative overflow-hidden aspect-video rounded-3xl gloss-card border-white/5 hover:border-red-500/50 hover:shadow-[0_0_50px_rgba(255,0,0,0.2)] transition-all duration-700"
+              to={`/portfolio/${item.slug}`}
+              className="group relative overflow-hidden aspect-video rounded-3xl gloss-card border-white/5 hover:border-red-500/50 transition-all duration-700"
             >
               <img
                 src={item.img}
@@ -117,10 +116,11 @@ const Portfolio: React.FC = () => {
                 </h4>
                 <div className="w-0 h-1 bg-red-600 mb-6 group-hover:w-full transition-all duration-700 delay-100"></div>
                 <div className="flex items-center gap-2 text-white text-[10px] font-bold uppercase tracking-widest transform translate-y-8 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500 delay-150">
-                  View on ArtStation <ExternalLink size={14} />
+                  Explore Project
+                  <ExternalLink size={14} />
                 </div>
               </div>
-            </a>
+            </Link>
           ))}
         </div>
       </div>

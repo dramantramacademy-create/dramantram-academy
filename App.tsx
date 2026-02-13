@@ -21,6 +21,8 @@ import AnimationCareer from "./pages/careers/AnimationCareer";
 import VideoEditingCareer from "./pages/careers/VideoEditingCareer";
 import UiUxCareer from "./pages/careers/UiUxCareer";
 import Brochure from "./components/Brochure";
+import ProjectDetails from "./pages/ProjectDetails";
+import NotFound from "./pages/NotFound";
 
 const App: React.FC = () => {
   return (
@@ -57,6 +59,8 @@ const App: React.FC = () => {
           <Route path="career-support" element={<CareerSupportPage />} />
           <Route path="*" element={<Home />} />
           <Route path="brochure" element={<Brochure />} />
+          <Route path="portfolio/:projectId" element={<ProjectDetails />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     </HashRouter>

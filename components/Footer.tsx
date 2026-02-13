@@ -38,7 +38,7 @@ const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="bg-black pt-1 pb-16 border-t border-red-900/10 relative overflow-hidden">
+    <footer className="bg-black pt-10 pb-16 border-t border-red-900/10 relative overflow-hidden">
       <div className="absolute bottom-0 right-0 w-[50%] h-[50%] bg-[#FF0000]/10 blur-[150px] -z-10"></div>
 
       <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-12 gap-16 mb-24">
