@@ -303,13 +303,21 @@ const ProjectDetailsPage: React.FC = () => {
                   640: { slidesPerView: 1.1 },
                   1024: { slidesPerView: 1.5 },
                 }}
-                className="project-gallery-swiper rounded-2xl md:rounded-[2rem] overflow-visible"
+                className="project-gallery-swiper rounded-2xl md:rounded-[2rem] overflow-hidden"
               >
                 {project.gallery?.map((item: string, idx: number) => {
                   const isVideo = item.endsWith(".mp4");
                   return (
-                    <SwiperSlide key={idx}>
-                      <div className="relative group overflow-hidden rounded-2xl md:rounded-[2rem] border border-white/5 gloss-card aspect-video bg-zinc-900">
+                    <SwiperSlide
+                      key={idx}
+                      onSwiper={(swiper) => {
+                        // Wait a tiny bit for the CDN to inject styles
+                        setTimeout(() => {
+                          swiper.update();
+                        }, 300);
+                      }}
+                    >
+                      <div className="relative group overflow-hidden rounded-2xl md:rounded-[2rem] border border-white/5 gloss-card aspect-video bg-zinc-900 w-full">
                         {isVideo ? (
                           <video
                             src={item}
@@ -452,6 +460,26 @@ const ProjectDetailsPage: React.FC = () => {
           .project-gallery-swiper .swiper-button-prev {
             transform: scale(0.6) !important;
           }
+        }
+
+        .project-gallery-swiper {
+          width: 100%;
+          height: auto;
+        }
+
+        .project-gallery-swiper .swiper-slide {
+          height: auto; /* Ensures it doesn't force a height that breaks the aspect ratio */
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        /* Fix for images stretching in production */
+        .project-gallery-swiper img,
+        .project-gallery-swiper video {
+          max-width: 100%;
+          display: block;
+          object-fit: cover;
         }
       `}</style>
     </div>
