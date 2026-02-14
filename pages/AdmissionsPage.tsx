@@ -126,7 +126,7 @@ const AdmissionsPage: React.FC = () => {
                   Email
                 </div>
                 <div className="text-sm font-black break-all">
-                  admission@dramantram.com
+                  admission@dramantramacademy.com
                 </div>
               </div>
             </div>

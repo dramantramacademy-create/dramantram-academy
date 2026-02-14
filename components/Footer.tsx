@@ -210,7 +210,7 @@ const Footer: React.FC = () => {
                 Admissions
               </div>
               <div className="text-xs font-black text-white break-all">
-                admission@dramantram.com
+                admission@dramantramacademy.com
               </div>
             </div>
           </div>
