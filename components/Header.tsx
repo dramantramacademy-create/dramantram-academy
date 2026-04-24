@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { NavLink, Link, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Phone } from "lucide-react";
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -28,8 +28,37 @@ const Header: React.FC = () => {
   }, [isMenuOpen]);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-[100] bg-black/40 backdrop-blur-md border-b border-white/10 transition-all duration-300">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 md:h-20 flex items-center justify-between">
+    <header className="fixed top-0 left-0 right-0 z-[100] flex flex-col transition-all duration-300">
+      {/* PREMIUM TOP CONTACT BANNER */}
+      <div className="bg-zinc-950 border-b border-white/5 relative z-[110] overflow-hidden">
+        {/* Subtle red glow in the center */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#FF0000]/15 via-transparent to-transparent opacity-80" />
+        
+        <div className="max-w-7xl mx-auto px-4 py-2 sm:py-2.5 flex flex-wrap items-center justify-center gap-2 sm:gap-4 relative z-10">
+          <div className="flex items-center gap-2 text-zinc-400 text-[9px] sm:text-[10px] font-medium uppercase tracking-[0.2em]">
+            <span className="relative flex h-1.5 w-1.5">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FF0000] opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#FF0000]"></span>
+            </span>
+            Request a call or connect directly
+          </div>
+          <span className="hidden sm:inline text-zinc-800 text-[10px]">|</span>
+          <a 
+            href="tel:+919599571599" 
+            className="flex items-center gap-1.5 text-white text-[10px] sm:text-xs font-bold uppercase tracking-[0.15em] hover:text-[#FFD700] transition-all duration-300 group"
+          >
+            <Phone size={12} className="text-[#FF0000] group-hover:scale-110 transition-transform" />
+            <span className="relative">
+              +91 95995 71599
+              <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#FFD700] group-hover:w-full transition-all duration-300 shadow-[0_0_8px_#FFD700]"></span>
+            </span>
+          </a>
+        </div>
+      </div>
+
+      {/* NAVBAR */}
+      <div className="bg-black/40 backdrop-blur-md border-b border-white/10 w-full">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 md:h-20 flex items-center justify-between">
         {/* LOGO SECTION */}
         <Link
           to="/"
@@ -165,7 +194,8 @@ const Header: React.FC = () => {
           </nav>
         </div>
       </div>
-    </header>
+    </div>
+  </header>
   );
 };
 

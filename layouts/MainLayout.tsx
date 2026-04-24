@@ -3,6 +3,7 @@ import React from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import CookieConsent from '../components/CookieConsent';
 
 const MainLayout: React.FC = () => {
   const { pathname } = useLocation();
@@ -19,6 +20,7 @@ const MainLayout: React.FC = () => {
         <Outlet />
       </main>
       <Footer />
+      <CookieConsent />
     </div>
   );
 };

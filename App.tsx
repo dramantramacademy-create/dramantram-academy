@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as HashRouter, Routes, Route } from "react-router-dom";
 import MainLayout from "./layouts/MainLayout";
+import AnalyticsTracker from "./components/AnalyticsTracker";
 import Home from "./pages/Home";
 import AboutPage from "./pages/AboutPage";
 import CoursesPage from "./pages/CoursesPage";
@@ -29,6 +30,7 @@ import AssignmentDetail from "./pages/AssignmentDetail";
 const App: React.FC = () => {
   return (
     <HashRouter>
+      <AnalyticsTracker />
       <Routes>
         <Route path="/" element={<MainLayout />}>
           <Route index element={<Home />} />
