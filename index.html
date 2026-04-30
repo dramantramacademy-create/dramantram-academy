@@ -6,188 +6,56 @@
     <title>Dramantram Academy | Turn Your Creativity Into a Career</title>
     <link rel="icon" href="/dramantram-logo.png" />
 
-    <meta
-      name="title"
-      content="Dramantram Academy | Turn Your Creativity Into a Career"
-    />
-    <meta
-      name="description"
-      content="Learn industry-relevant creative skills through hands-on training and mentorship."
-    />
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="Dramantram Academy | Turn Your Creativity Into a Career" />
+    <meta name="description" content="Learn industry-relevant creative skills through hands-on training and mentorship." />
 
+    <!-- Open Graph / Facebook (Used by LinkedIn) -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://dramantramacademy.netlify.app/" />
+    <meta property="og:url" content="https://dramantramacademy.com/" />
     <meta property="og:title" content="Dramantram Academy" />
-    <meta
-      property="og:description"
-      content="Turn Your Creativity Into a Career with Studio Learning."
-    />
-    <meta
-      property="og:image"
-      content="https://dramantramacademy.netlify.app/dramantram-logo.png"
-    />
-    <meta property="og:image:alt" content="Dramantram Academy Logo" />
+    <meta property="og:description" content="Turn Your Creativity Into a Career with Studio Learning." />
+    <!-- This points to the screenshot you just made -->
+    <meta property="og:image" content="https://dramantramacademy.com/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="627" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="https://dramantramacademy.netlify.app/" />
+    <meta name="twitter:url" content="https://dramantramacademy.com/" />
     <meta name="twitter:title" content="Dramantram Academy" />
-    <meta
-      name="twitter:description"
-      content="Turn Your Creativity Into a Career with Studio Learning."
-    />
-    <meta
-      name="twitter:image"
-      content="https://dramantramacademy.netlify.app/dramantram-logo.png"
-    />
+    <meta name="twitter:description" content="Turn Your Creativity Into a Career with Studio Learning." />
+    <meta name="twitter:image" content="https://dramantramacademy.com/og-image.png" />
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GHXQKJTTVS"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
-
-    gtag('config', 'G-GHXQKJTTVS', { send_page_view: false });
-  </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GHXQKJTTVS"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-GHXQKJTTVS', { send_page_view: false });
+    </script>
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Oswald:wght@500;700;800;900&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Oswald:wght@500;700;800;900&display=swap" rel="stylesheet" />
+    
     <style>
-      :root {
-        --brand-red: #ff0000;
-        --brand-yellow: #ffd700;
-      }
-      body {
-        font-family: "Plus Jakarta Sans", sans-serif;
-        background-color: #000000;
-        color: #ffffff;
-        overflow-x: hidden;
-      }
-      .oswald {
-        font-family: "Oswald", sans-serif;
-      }
-
-      .gloss-card {
-        background: rgba(255, 255, 255, 0.015);
-        backdrop-filter: blur(16px);
-        border: 1px solid rgba(255, 0, 0, 0.1);
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      }
-      .gloss-card:hover {
-        border-color: var(--brand-red);
-        background: rgba(255, 0, 0, 0.03);
-        box-shadow: 0 0 30px rgba(255, 0, 0, 0.15);
-      }
-
-      .text-gradient-red {
-        background: linear-gradient(135deg, #ffffff 30%, #ff0000 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
-
-      .bg-red-radial {
-        background: radial-gradient(
-          circle at center,
-          rgba(255, 0, 0, 0.25) 0%,
-          transparent 70%
-        );
-      }
-
-      .bg-red-glow {
-        background: radial-gradient(
-          circle at 50% 50%,
-          rgba(255, 0, 0, 0.15) 0%,
-          transparent 60%
-        );
-      }
-
-      .section-divider {
-        height: 1px;
-        background: linear-gradient(
-          90deg,
-          transparent,
-          rgba(255, 0, 0, 0.3),
-          transparent
-        );
-      }
-
-      @keyframes fadeInUp {
-        from {
-          opacity: 0;
-          transform: translateY(30px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      @keyframes float {
-        0%,
-        100% {
-          transform: translateY(0);
-        }
-        50% {
-          transform: translateY(-10px);
-        }
-      }
-
-      .animate-fade-in-up {
-        animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-      }
-
-      .animation-delay-200 {
-        animation-delay: 0.2s;
-      }
-      .animation-delay-400 {
-        animation-delay: 0.4s;
-      }
-      .animation-delay-600 {
-        animation-delay: 0.6s;
-      }
-
-      .reveal {
-        opacity: 0;
-        transform: translateY(30px);
-        transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-      }
-
-      .reveal.active {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      .grid-pattern {
-        background-image:
-          linear-gradient(rgba(255, 0, 0, 0.05) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(255, 0, 0, 0.05) 1px, transparent 1px);
-        background-size: 50px 50px;
-      }
-
-      ::selection {
-        background: var(--brand-red);
-        color: white;
-      }
-
-      ::-webkit-scrollbar {
-        width: 8px;
-      }
-      ::-webkit-scrollbar-track {
-        background: #000000;
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #330000;
-        border-radius: 4px;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: var(--brand-red);
-      }
+      :root { --brand-red: #ff0000; --brand-yellow: #ffd700; }
+      body { font-family: "Plus Jakarta Sans", sans-serif; background-color: #000000; color: #ffffff; overflow-x: hidden; }
+      .oswald { font-family: "Oswald", sans-serif; }
+      .gloss-card { background: rgba(255, 255, 255, 0.015); backdrop-filter: blur(16px); border: 1px solid rgba(255, 0, 0, 0.1); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+      .gloss-card:hover { border-color: var(--brand-red); background: rgba(255, 0, 0, 0.03); box-shadow: 0 0 30px rgba(255, 0, 0, 0.15); }
+      .text-gradient-red { background: linear-gradient(135deg, #ffffff 30%, #ff0000 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+      .bg-red-radial { background: radial-gradient(circle at center, rgba(255, 0, 0, 0.25) 0%, transparent 70%); }
+      .bg-red-glow { background: radial-gradient(circle at 50% 50%, rgba(255, 0, 0, 0.15) 0%, transparent 60%); }
+      .section-divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(255, 0, 0, 0.3), transparent); }
+      @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+      .animate-fade-in-up { animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+      .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+      .reveal.active { opacity: 1; transform: translateY(0); }
+      .grid-pattern { background-image: linear-gradient(rgba(255, 0, 0, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 0, 0, 0.05) 1px, transparent 1px); background-size: 50px 50px; }
+      ::selection { background: var(--brand-red); color: white; }
     </style>
+
     <script type="importmap">
       {
         "imports": {
@@ -202,37 +70,24 @@
         }
       }
     </script>
-    <link rel="stylesheet" href="/index.css" />
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="index.tsx"></script>
+    <script type="module" src="/index.tsx"></script>
     <script>
-      // Simple intersection observer for reveal animations
-      const observerOptions = {
-        threshold: 0.1,
-      };
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("active");
-          }
+          if (entry.isIntersecting) entry.target.classList.add("active");
         });
-      }, observerOptions);
+      }, { threshold: 0.1 });
 
-      // We need to re-run this when content changes, but for a static set of components
-      // we can just wait for the initial load.
       document.addEventListener("DOMContentLoaded", () => {
-        const reveals = document.querySelectorAll(".reveal");
-        reveals.forEach((el) => observer.observe(el));
+        document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
       });
 
-      // Since it's a SPA, we might need a small timeout or a mutation observer
       setInterval(() => {
-        const reveals = document.querySelectorAll(".reveal:not(.active)");
-        reveals.forEach((el) => observer.observe(el));
+        document.querySelectorAll(".reveal:not(.active)").forEach((el) => observer.observe(el));
       }, 1000);
     </script>
-    <script type="module" src="/index.tsx"></script>
   </body>
 </html>
