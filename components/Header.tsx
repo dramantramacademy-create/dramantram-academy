@@ -10,6 +10,7 @@ const Header: React.FC = () => {
     { label: "Home", path: "/" },
     { label: "Portfolio", path: "/portfolio" },
     { label: "Bootcamp", path: "/bootcamp" },
+    { label: "Webinar", path: "/webinar" },
     { label: "About", path: "/about" },
     { label: "Programs", path: "/programs" },
     { label: "Mentors", path: "/mentors" },
@@ -43,16 +44,20 @@ const Header: React.FC = () => {
             Request a call or connect directly
           </div>
           <span className="hidden sm:inline text-zinc-800 text-[10px]">|</span>
-          <a 
-            href="tel:+919599571599" 
-            className="flex items-center gap-1.5 text-white text-[10px] sm:text-xs font-bold uppercase tracking-[0.15em] hover:text-[#FFD700] transition-all duration-300 group"
-          >
+          <div className="flex items-center gap-1.5 text-white text-[10px] sm:text-xs font-bold uppercase tracking-[0.15em] transition-all duration-300 group">
             <Phone size={12} className="text-[#FF0000] group-hover:scale-110 transition-transform" />
             <span className="relative">
               +91 95995 71599
               <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#FFD700] group-hover:w-full transition-all duration-300 shadow-[0_0_8px_#FFD700]"></span>
             </span>
-          </a>
+          </div>
+          <span className="hidden sm:inline text-zinc-800 text-[10px]">|</span>
+          <Link 
+            to="/callback" 
+            className="px-3 py-1 sm:px-4 sm:py-1.5 bg-gradient-to-r from-[#FF0000] to-[#990000] text-white text-[9px] sm:text-[10px] font-bold uppercase tracking-widest rounded hover:shadow-[0_0_15px_rgba(255,0,0,0.5)] transition-all duration-300"
+          >
+            Request a Callback
+          </Link>
         </div>
       </div>
 

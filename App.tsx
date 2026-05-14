@@ -26,6 +26,8 @@ import ProjectDetails from "./pages/ProjectDetails";
 import NotFound from "./pages/NotFound";
 import EnquiryPage from "./pages/Enquiries";
 import AssignmentDetail from "./pages/AssignmentDetail";
+import CallbackPage from "./pages/CallbackPage";
+import WebinarPage from "./pages/WebinarPage";
 
 const App: React.FC = () => {
   return (
@@ -66,6 +68,8 @@ const App: React.FC = () => {
           <Route path="portfolio/:projectId" element={<ProjectDetails />} />
           <Route path="*" element={<NotFound />} />
           <Route path="/enquiry" element={<EnquiryPage />} />
+          <Route path="/callback" element={<CallbackPage />} />
+          <Route path="/webinar" element={<WebinarPage />} />
           <Route path="assignment/:id" element={<AssignmentDetail />} />
         </Route>
       </Routes>

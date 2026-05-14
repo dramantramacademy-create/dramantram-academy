@@ -101,6 +101,9 @@ const EnquiryPage: React.FC = () => {
               <form ref={formRef} className="space-y-8" onSubmit={handleSubmit}>
                 {/* HIDDEN FIELD FOR {{title}} variable in your Subject line */}
                 <input type="hidden" name="title" value="General Web Enquiry" />
+                {/* Hidden fields for unified template compatibility */}
+                <input type="hidden" name="user_phone" value="N/A" />
+                <input type="hidden" name="domain_expertise" value="N/A" />
 
                 <div className="grid md:grid-cols-2 gap-6">
                   {/* Name field: Maps to {{user_name}} and {{name}} */}
