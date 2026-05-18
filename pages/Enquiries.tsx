@@ -15,6 +15,7 @@ import {
   Loader2,
   CheckCircle,
   HelpCircle,
+  BookOpen,
 } from "lucide-react";
 
 const EnquiryPage: React.FC = () => {
@@ -101,9 +102,6 @@ const EnquiryPage: React.FC = () => {
               <form ref={formRef} className="space-y-8" onSubmit={handleSubmit}>
                 {/* HIDDEN FIELD FOR {{title}} variable in your Subject line */}
                 <input type="hidden" name="title" value="General Web Enquiry" />
-                {/* Hidden fields for unified template compatibility */}
-                <input type="hidden" name="user_phone" value="N/A" />
-                <input type="hidden" name="domain_expertise" value="N/A" />
 
                 <div className="grid md:grid-cols-2 gap-6">
                   {/* Name field: Maps to {{user_name}} and {{name}} */}
@@ -157,12 +155,56 @@ const EnquiryPage: React.FC = () => {
                       />
                     </div>
                   </div>
+
+                  {/* Phone field */}
+                  <div className="space-y-2">
+                    <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest ml-1">
+                      Phone Number
+                    </label>
+                    <div className="relative">
+                      <Phone
+                        className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500"
+                        size={18}
+                      />
+                      <input
+                        name="user_phone"
+                        required
+                        type="tel"
+                        placeholder="+91 0000000000"
+                        className="w-full bg-white/5 border border-white/10 rounded-xl py-4 pl-12 pr-4 focus:border-[#FF0000] focus:outline-none"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Interested Program */}
+                  <div className="space-y-2">
+                    <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest ml-1">
+                      Interested Program
+                    </label>
+                    <div className="relative">
+                      <BookOpen className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" size={18} />
+                      <select
+                        name="domain_expertise"
+                        required
+                        className="w-full bg-white/5 border border-white/10 rounded-xl py-4 pl-12 pr-4 text-white appearance-none focus:border-[#FF0000] focus:outline-none"
+                        defaultValue=""
+                      >
+                        <option value="" disabled className="text-gray-500 bg-zinc-900">Select Program</option>
+                        <option value="ui-ux" className="bg-zinc-900">Visual Design</option>
+                        <option value="animation" className="bg-zinc-900">Animation 2D & 3D</option>
+                        <option value="video-editing" className="bg-zinc-900">Video Editing</option>
+                        <option value="ai-marketing" className="bg-zinc-900">AI Marketing & Automation</option>
+                        <option value="bootcamp" className="bg-zinc-900">Bootcamp</option>
+                        <option value="other" className="bg-zinc-900">Other / Not Sure</option>
+                      </select>
+                    </div>
+                  </div>
                 </div>
 
                 {/* Message field: Maps to {{enquiry}} */}
                 <div className="space-y-2">
                   <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest ml-1">
-                    Your Enquiry
+                    Additional Details (Optional)
                   </label>
                   <div className="relative">
                     <MessageSquare
@@ -171,9 +213,8 @@ const EnquiryPage: React.FC = () => {
                     />
                     <textarea
                       name="enquiry"
-                      required
                       rows={5}
-                      placeholder="Your message..."
+                      placeholder="Tell us what you're looking for, any specific questions, or a bit about your background..."
                       className="w-full bg-white/5 border border-white/10 rounded-xl py-4 pl-12 pr-4 focus:border-[#FF0000] focus:outline-none resize-none"
                     ></textarea>
                   </div>

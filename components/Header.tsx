@@ -9,7 +9,7 @@ const Header: React.FC = () => {
   const navItems = [
     { label: "Home", path: "/" },
     { label: "Portfolio", path: "/portfolio" },
-    { label: "Bootcamp", path: "/bootcamp" },
+    // { label: "Bootcamp", path: "/bootcamp" },
     { label: "Webinar", path: "/webinar" },
     { label: "About", path: "/about" },
     { label: "Programs", path: "/programs" },

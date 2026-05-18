@@ -48,7 +48,7 @@ const UiUxPage: React.FC = () => {
             </div>
 
             <h1 className="oswald text-6xl md:text-8xl font-black uppercase tracking-tighter mb-8">
-              UI/UX <br />
+              Visual <br />
               <span className="text-[#FF0000]">Design.</span>
             </h1>
             <p className="text-gray-400 text-xl leading-relaxed mb-10 font-medium">

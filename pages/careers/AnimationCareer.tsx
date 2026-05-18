@@ -13,7 +13,7 @@ const AnimationCareer: React.FC = () => {
             Back to Programs
           </Link>
           <h1 className="oswald text-6xl md:text-8xl font-black uppercase tracking-tighter mb-8 animate-fade-in-up">
-            Animation & VFX <br /><span className="text-gradient-red">Growth Paths.</span>
+            Animation 2D & 3D<br /><span className="text-gradient-red">Growth Paths.</span>
           </h1>
           <p className="text-gray-400 max-w-3xl text-xl font-medium leading-relaxed animate-fade-in-up animation-delay-200">
             The demand for motion graphics and visual effects has never been higher. From commercial advertising to the gaming industry, motion creators are the architects of modern visual storytelling.

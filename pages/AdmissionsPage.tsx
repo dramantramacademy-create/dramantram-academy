@@ -32,10 +32,10 @@ const AdmissionsPage: React.FC = () => {
   };
 
   const courses = [
-    { id: "visual", label: "AI Marketing & Automation", icon: "📈" },
-    { id: "uiux", label: "UI/UX Design", icon: "📱" },
-    { id: "vfx", label: "Animation & VFX", icon: "🎬" },
+    { id: "uiux", label: "Visual Design", icon: "📱" },
+    { id: "vfx", label: "Animation 2D & 3D", icon: "🎬" },
     { id: "editing", label: "Video Editing", icon: "✂️" },
+    { id: "visual", label: "AI Marketing & Automation", icon: "📈" },
     { id: "bootcamp", label: "Bootcamp", icon: "🎓" },
   ];
 

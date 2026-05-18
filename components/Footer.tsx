@@ -78,7 +78,7 @@ const Footer: React.FC = () => {
                   Lucknow Campus
                 </div>
                 <span className="text-gray-300 text-sm font-bold">
-                  Summit Building, Vibhuti Khand, <br />
+                  {/* Summit Building, Vibhuti Khand, <br /> */}
                   Gomti Nagar, Lucknow, UP 226010
                 </span>
               </div>
@@ -246,19 +246,31 @@ const Footer: React.FC = () => {
           &copy; 2026 Dramantram Academy. A Lucknow-Based Creative Agency
           School.
         </p>
-        <div className="flex gap-10 text-[10px] text-gray-600 font-black uppercase tracking-widest">
-          <a href="/programs" className="hover:text-white transition-colors">
+        <div className="flex flex-wrap justify-center md:justify-end gap-x-10 gap-y-4 text-[10px] text-gray-600 font-black uppercase tracking-widest">
+          <Link to="/programs" className="hover:text-white transition-colors">
             Programs
-          </a>
-          <a href="/admissions" className="hover:text-white transition-colors">
+          </Link>
+          <Link to="/admissions" className="hover:text-white transition-colors">
             Apply Now
-          </a>
-          <a
-            href="/career-support"
+          </Link>
+          <Link
+            to="/career-support"
             className="hover:text-[#FFD700] transition-colors"
           >
             Career Support
-          </a>
+          </Link>
+          <Link
+            to="/privacy-policy"
+            className="hover:text-white transition-colors"
+          >
+            Privacy Policy
+          </Link>
+          <Link
+            to="/terms-conditions"
+            className="hover:text-white transition-colors"
+          >
+            Terms & Conditions
+          </Link>
         </div>
       </div>
     </footer>

@@ -40,7 +40,7 @@ const AnimationVfxPage: React.FC = () => {
 
             <h1 className="oswald text-6xl md:text-8xl font-black uppercase tracking-tighter mb-8">
               Animation <br />
-              <span className="text-gradient-red">& VFX.</span>
+              <span className="text-gradient-red">2D & 3D</span>
             </h1>
             <p className="text-gray-400 text-xl leading-relaxed mb-10 font-medium">
               Learn how motion brings visuals to life — through animation, video

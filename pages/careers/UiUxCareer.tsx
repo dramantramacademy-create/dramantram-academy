@@ -13,7 +13,7 @@ const UiUxCareer: React.FC = () => {
             Back to Programs
           </Link>
           <h1 className="oswald text-6xl md:text-8xl font-black uppercase tracking-tighter mb-8 animate-fade-in-up">
-            UI/UX Design <br /><span className="text-gradient-red">Product Careers.</span>
+            Visual Design <br /><span className="text-gradient-red">Product Careers.</span>
           </h1>
           <p className="text-gray-400 max-w-3xl text-xl font-medium leading-relaxed animate-fade-in-up animation-delay-200">
             As the digital economy grows, the need for intuitive and aesthetic digital products is exploding. UI/UX designers are the problem solvers of the modern world.

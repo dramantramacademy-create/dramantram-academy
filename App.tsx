@@ -28,6 +28,8 @@ import EnquiryPage from "./pages/Enquiries";
 import AssignmentDetail from "./pages/AssignmentDetail";
 import CallbackPage from "./pages/CallbackPage";
 import WebinarPage from "./pages/WebinarPage";
+import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
+import TermsConditionsPage from "./pages/TermsConditionsPage";
 
 const App: React.FC = () => {
   return (
@@ -70,6 +72,8 @@ const App: React.FC = () => {
           <Route path="/enquiry" element={<EnquiryPage />} />
           <Route path="/callback" element={<CallbackPage />} />
           <Route path="/webinar" element={<WebinarPage />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+          <Route path="/terms-conditions" element={<TermsConditionsPage />} />
           <Route path="assignment/:id" element={<AssignmentDetail />} />
         </Route>
       </Routes>

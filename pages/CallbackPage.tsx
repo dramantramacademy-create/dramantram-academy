@@ -195,13 +195,13 @@ const CallbackPage: React.FC = () => {
               )}
             </div>
 
-            {/* Right Column: Image */}
+            {/* Right Column: Image from-green-600/80 to-green-400/80 */}
             <div className="hidden md:flex relative rounded-3xl overflow-hidden group min-h-[400px]">
-              <div className="absolute inset-0 bg-gradient-to-tr from-green-600/80 to-green-400/80 z-10 mix-blend-multiply transition-opacity duration-500"></div>
+              <div className="absolute inset-0 bg-gradient-to-tr  z-10 mix-blend-multiply transition-opacity duration-500"></div>
               <div className="absolute inset-0 bg-black/20 z-10"></div>
               
               <img 
-                src="/abdul.jpeg" 
+                src="/assistant.png" 
                 alt="Support Representative" 
                 className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
               />
