@@ -203,11 +203,10 @@ const AdmissionsPage: React.FC = () => {
                         key={course.id}
                         type="button"
                         onClick={() => setSelectedCourse(course.label)}
-                        className={`flex items-center gap-4 p-4 rounded-xl border transition-all text-left ${
-                          selectedCourse === course.label
+                        className={`flex items-center gap-4 p-4 rounded-xl border transition-all text-left ${selectedCourse === course.label
                             ? "bg-[#FF0000]/20 border-[#FF0000] shadow-[0_0_15px_rgba(255,0,0,0.2)]"
                             : "bg-white/5 border-white/10 hover:border-white/30"
-                        }`}
+                          }`}
                       >
                         <span className="text-2xl">{course.icon}</span>
                         <span
@@ -372,7 +371,7 @@ const AdmissionsPage: React.FC = () => {
                 Academy Address
               </div>
               <p className="text-white font-bold leading-relaxed">
-                Summit Building, 10th Floor, <br />
+                {/* Summit Building, 10th Floor, <br /> */}
                 Vibhuti Khand, Gomti Nagar, <br />
                 Lucknow, Uttar Pradesh 226010
               </p>
