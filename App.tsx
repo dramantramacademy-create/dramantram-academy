@@ -30,6 +30,7 @@ import CallbackPage from "./pages/CallbackPage";
 import WebinarPage from "./pages/WebinarPage";
 import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
 import TermsConditionsPage from "./pages/TermsConditionsPage";
+import BecomeMentorPage from "./pages/BecomeMentorPage";
 
 const App: React.FC = () => {
   return (
@@ -61,6 +62,7 @@ const App: React.FC = () => {
           />
           <Route path="careers/ui-ux" element={<UiUxCareer />} />
           <Route path="mentors" element={<MentorsPage />} />
+          <Route path="become-mentor" element={<BecomeMentorPage />} />
           <Route path="bootcamp" element={<BootcampPage />} />
           <Route path="admissions" element={<AdmissionsPage />} />
           <Route path="alumni" element={<AlumniSuccessPage />} />

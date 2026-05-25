@@ -79,7 +79,7 @@ const WebinarPage: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!captchaToken) {
       alert("Please verify that you are a human!");
       return;
@@ -125,7 +125,7 @@ const WebinarPage: React.FC = () => {
       {/* 1. HERO SECTION */}
       <section className="relative py-16 md:py-24 overflow-hidden border-b border-white/10">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-red-900/20 via-black to-black opacity-80" />
-        
+
         <div className="max-w-7xl mx-auto px-6 relative z-10 grid lg:grid-cols-2 gap-12 lg:gap-20">
           {/* Left: Info */}
           <div className="flex flex-col justify-center">
@@ -153,24 +153,24 @@ const WebinarPage: React.FC = () => {
               <h3 className="oswald text-xl uppercase tracking-widest font-bold text-white">Webinar Starts In:</h3>
               <CountdownTimer targetDate={webinarDate} />
             </div>
-            
+
             {/* 
             <button onClick={scrollToForm} className="hidden lg:inline-block w-fit px-8 py-4 bg-white text-black font-black uppercase tracking-widest rounded hover:bg-gray-200 transition-colors">
               Learn More
             </button> */}
-            
+
           </div>
 
           {/* Right: Video & Form */}
           <div className="flex flex-col">
             {/* Video Placeholder */}
-            <div 
+            <div
               className={`bg-zinc-950 w-full aspect-video rounded-t-2xl border border-white/10 flex flex-col items-center justify-center relative overflow-hidden group ${!isPlaying ? 'cursor-pointer' : ''}`}
               onClick={!isPlaying ? handlePlayVideo : undefined}
             >
-              <video 
+              <video
                 ref={videoRef}
-                src="/reel.mp4" 
+                src="/reel.mp4"
                 className={`absolute inset-0 w-full h-full ${isPlaying ? 'object-contain bg-black' : 'object-cover opacity-40 group-hover:opacity-50 transition-opacity'}`}
                 controls={isPlaying}
                 playsInline
@@ -199,7 +199,7 @@ const WebinarPage: React.FC = () => {
                   <input type="hidden" name="title" value="Webinar" />
                   <input type="hidden" name="domain_expertise" value="N/A" />
                   <input type="hidden" name="enquiry" value="N/A" />
-                  
+
                   <div className="space-y-1.5">
                     <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest ml-1">Name</label>
                     <div className="relative">
@@ -247,25 +247,41 @@ const WebinarPage: React.FC = () => {
         </div>
       </section>
 
-      {/* 2. AI NEWS SECTION */}
-      <section className="py-20 bg-black border-b border-white/5">
+      {/* 2. SPEAKERS SECTION */}
+      <section className="py-24 bg-zinc-950 border-b border-white/5">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="oswald text-4xl md:text-5xl font-black tracking-tighter">
-              AI is reshaping jobs faster than ever
-            </h2>
-          </div>
-          
-          <div className="grid md:grid-cols-2 gap-4 max-w-6xl mx-auto">
-            {AI_NEWS_IMAGES.map((image, index) => (
-              <div key={image.id} className="bg-zinc-900 border border-white/10 group relative flex items-center justify-center overflow-hidden">
-                <span className="text-gray-500 text-sm font-medium z-0 absolute">Paste Image URL {index + 1} Here</span>
-                <img src={image.url} alt={`AI News ${index + 1}`} className="w-full h-auto object-contain group-hover:scale-[1.02] transition-transform duration-500 z-10 opacity-0" 
-                  onLoad={(e) => (e.currentTarget.style.opacity = '1')} 
-                  onError={(e) => (e.currentTarget.style.opacity = '0')}
-                />
+          {/* Added text-center here to center the heading */}
+          <h2 className="oswald text-4xl md:text-5xl font-black uppercase tracking-tighter mb-16 text-center">
+            Webinar Speakers
+          </h2>
+
+          {/* Added mx-auto here to center the grid block itself */}
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div className="flex gap-6 items-center p-6 bg-white/5 border border-white/10 rounded-2xl">
+              <div className="w-24 h-24 bg-zinc-800 rounded-xl overflow-hidden shrink-0">
+                <img src="/shadab.jpeg" alt="Expert Mentor" className="w-full h-full object-cover" />
               </div>
-            ))}
+              <div>
+                <h3 className="oswald text-2xl font-black uppercase mb-1">Mohammad Shadab</h3>
+                <p className="text-[#FFD700] text-xs font-bold uppercase tracking-widest mb-3">Senior 3D Artist</p>
+                <p className="text-gray-400 text-sm">
+                  Years of experience helping freshers land their first studio job and navigate the complex 3D industry.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex gap-6 items-center p-6 bg-white/5 border border-white/10 rounded-2xl">
+              <div className="w-24 h-24 bg-zinc-800 rounded-xl overflow-hidden shrink-0">
+                <img src="/kundan.jpeg" alt="Industry Expert" className="w-full h-full object-cover" />
+              </div>
+              <div>
+                <h3 className="oswald text-2xl font-black uppercase mb-1">Kundan Kumar</h3>
+                <p className="text-[#FFD700] text-xs font-bold uppercase tracking-widest mb-3">Co-Founder, Dramantram</p>
+                <p className="text-gray-400 text-sm">
+                  Insights into the real hiring process, art tests, and what makes a portfolio stand out.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -287,7 +303,7 @@ const WebinarPage: React.FC = () => {
                 Understand what companies actually want from freshers: problem-solvers, not just software operators.
               </p>
             </div>
-            
+
             <div className="flex flex-col items-center">
               <div className="w-16 h-16 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mb-6 text-[#FF0000]">
                 <Briefcase size={28} />
@@ -348,11 +364,10 @@ const WebinarPage: React.FC = () => {
                 desc: "A 90-day action plan you can begin this week, regardless of which path you choose."
               }
             ].map((item, idx) => (
-              <div 
-                key={idx} 
-                className={`flex gap-6 items-center p-6 bg-white/5 border border-[#FF0000]/30 rounded-2xl hover:border-[#FF0000]/80 transition-colors ${
-                  idx === 4 ? "md:col-span-2 md:w-[calc(50%-12px)] md:mx-auto" : ""
-                }`}
+              <div
+                key={idx}
+                className={`flex gap-6 items-center p-6 bg-white/5 border border-[#FF0000]/30 rounded-2xl hover:border-[#FF0000]/80 transition-colors ${idx === 4 ? "md:col-span-2 md:w-[calc(50%-12px)] md:mx-auto" : ""
+                  }`}
               >
                 <div className="w-16 h-16 bg-[#FF0000] rounded-xl flex items-center justify-center shrink-0 text-white oswald text-3xl font-black shadow-[0_0_15px_rgba(255,0,0,0.5)]">
                   {item.number}
@@ -370,7 +385,7 @@ const WebinarPage: React.FC = () => {
       {/* 5. SCHEDULE SECTION */}
       <section className="py-24 bg-zinc-950 border-b border-white/5 relative">
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 lg:gap-8">
-          
+
           {/* Left side text */}
           <div className="lg:pr-12">
             <h2 className="oswald text-4xl md:text-5xl font-black uppercase tracking-tighter mb-6">Webinar Schedule</h2>
@@ -380,7 +395,7 @@ const WebinarPage: React.FC = () => {
             <button onClick={scrollToForm} className="px-8 py-4 bg-white text-black font-black uppercase tracking-widest rounded hover:bg-gray-200 transition-colors mb-12">
               Register Now
             </button>
-            
+
             <div className="pt-8 border-t border-white/10">
               <h3 className="oswald text-xl uppercase tracking-widest font-bold text-white mb-4">Webinar Starts In:</h3>
               <CountdownTimer targetDate={webinarDate} />
@@ -400,7 +415,7 @@ const WebinarPage: React.FC = () => {
               <div key={idx} className="relative">
                 {/* Timeline dot */}
                 <div className="absolute -left-[41px] top-1 w-4 h-4 bg-black border-2 border-[#FFD700] rounded-full"></div>
-                
+
                 <div className="inline-block px-3 py-1 bg-white/10 text-[#FFD700] text-[10px] font-black tracking-widest uppercase rounded mb-3">
                   {item.time}
                 </div>
@@ -413,41 +428,25 @@ const WebinarPage: React.FC = () => {
         </div>
       </section>
 
-      {/* 4. SPEAKERS SECTION */}
-<section className="py-24 bg-zinc-950 border-b border-white/5">
+      {/* 4. AI NEWS SECTION */}
+      <section className="py-20 bg-black border-b border-white/5">
         <div className="max-w-7xl mx-auto px-6">
-          {/* Added text-center here to center the heading */}
-          <h2 className="oswald text-4xl md:text-5xl font-black uppercase tracking-tighter mb-16 text-center">
-            Webinar Speakers
-          </h2>
-          
-          {/* Added mx-auto here to center the grid block itself */}
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <div className="flex gap-6 items-center p-6 bg-white/5 border border-white/10 rounded-2xl">
-              <div className="w-24 h-24 bg-zinc-800 rounded-xl overflow-hidden shrink-0">
-                <img src="/shadab.jpeg" alt="Expert Mentor" className="w-full h-full object-cover" />
+          <div className="text-center mb-16">
+            <h2 className="oswald text-4xl md:text-5xl font-black tracking-tighter">
+              AI is reshaping jobs faster than ever
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-4 max-w-6xl mx-auto">
+            {AI_NEWS_IMAGES.map((image, index) => (
+              <div key={image.id} className="bg-zinc-900 border border-white/10 group relative flex items-center justify-center overflow-hidden">
+                <span className="text-gray-500 text-sm font-medium z-0 absolute">Paste Image URL {index + 1} Here</span>
+                <img src={image.url} alt={`AI News ${index + 1}`} className="w-full h-auto object-contain group-hover:scale-[1.02] transition-transform duration-500 z-10 opacity-0"
+                  onLoad={(e) => (e.currentTarget.style.opacity = '1')}
+                  onError={(e) => (e.currentTarget.style.opacity = '0')}
+                />
               </div>
-              <div>
-                <h3 className="oswald text-2xl font-black uppercase mb-1">Mohammad Shadab</h3>
-                <p className="text-[#FFD700] text-xs font-bold uppercase tracking-widest mb-3">Senior 3D Artist</p>
-                <p className="text-gray-400 text-sm">
-                  Years of experience helping freshers land their first studio job and navigate the complex 3D industry.
-                </p>
-              </div>
-            </div>
-            
-            <div className="flex gap-6 items-center p-6 bg-white/5 border border-white/10 rounded-2xl">
-              <div className="w-24 h-24 bg-zinc-800 rounded-xl overflow-hidden shrink-0">
-                <img src="/kundan.jpeg" alt="Industry Expert" className="w-full h-full object-cover" />
-              </div>
-              <div>
-                <h3 className="oswald text-2xl font-black uppercase mb-1">Kundan Kumar</h3>
-                <p className="text-[#FFD700] text-xs font-bold uppercase tracking-widest mb-3">Co-Founder, Dramantram</p>
-                <p className="text-gray-400 text-sm">
-                  Insights into the real hiring process, art tests, and what makes a portfolio stand out.
-                </p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
