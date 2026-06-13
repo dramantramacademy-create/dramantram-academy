@@ -1,6 +1,26 @@
 import React, { useState, useEffect, useRef } from "react";
 import emailjs from "@emailjs/browser";
-import { User, Mail, Play, Briefcase, FileImage, Lightbulb, CheckCircle, Clock, Phone, PieChart, FileSpreadsheet, Smartphone, BookOpen, BarChart } from "lucide-react";
+import { 
+  User, 
+  Mail, 
+  Play, 
+  Briefcase, 
+  FileImage, 
+  Lightbulb, 
+  CheckCircle, 
+  Clock, 
+  Phone, 
+  BarChart,
+  ChevronDown,
+  ChevronUp,
+  Target,
+  Award,
+  TrendingUp,
+  Eye,
+  MessageSquare,
+  ShieldAlert,
+  HelpCircle
+} from "lucide-react";
 import ReCAPTCHA from "react-google-recaptcha";
 
 // Countdown component helper
@@ -41,8 +61,9 @@ const CountdownTimer = ({ targetDate }: { targetDate: Date }) => {
         { label: "Seconds", value: timeLeft.seconds },
       ].map((item, idx) => (
         <div key={idx} className="flex flex-col items-center">
-          <div className="w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center border-2 border-white/20 rounded-lg text-xl sm:text-2xl font-black oswald bg-white/5">
-            {item.value.toString().padStart(2, "0")}
+          <div className="w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center border border-white/10 rounded-lg text-xl sm:text-2xl font-black oswald bg-white/5 relative overflow-hidden group">
+            <span className="relative z-10">{item.value.toString().padStart(2, "0")}</span>
+            <div className="absolute inset-0 bg-gradient-to-t from-red-600/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           </div>
           <span className="text-[9px] sm:text-[10px] uppercase tracking-widest text-gray-400 mt-2 font-bold">
             {item.label}
@@ -63,6 +84,209 @@ const AI_NEWS_IMAGES = [
   { id: 6, url: "https://be10x.com/wp-content/uploads/2026/01/666.avif?gad_source=1&gad_campaignid=23719132075&gbraid=0AAAABCdTOUhgWnZCYMyWYv-s5gqf_KMUE&gclid=CjwKCAjwn4vQBhBsEiwAq3hhN8cW9-uLrplt1JM3SWYd2ZsW-P9lAUVekBh0rxsrwYjlOLJ_ImEHyBoCxjEQAvD_BwE" },
 ];
 
+interface Subsection {
+  title?: string;
+  slides: string[];
+}
+
+interface CurriculumSegment {
+  segment: string;
+  topic: string;
+  duration: string;
+  purpose: string;
+  subsections: Subsection[];
+}
+
+const WEBINAR_CURRICULUM: CurriculumSegment[] = [
+  {
+    segment: "Introduction",
+    topic: "Welcome, Context & Expectations",
+    duration: "15 min",
+    purpose: "Set context and establish the central question of the webinar",
+    subsections: [
+      {
+        slides: [
+          "Welcome & Introduction",
+          "About Dramantram Academy",
+          "Audience Poll",
+          "Why This Webinar?",
+          "The Question We Are Exploring Today",
+          "What This Webinar Is Not",
+          "Session Roadmap"
+        ]
+      }
+    ]
+  },
+  {
+    segment: "Segment 1",
+    topic: "Why Some Creatives Grow Faster Than Others",
+    duration: "15 min",
+    purpose: "Challenge common assumptions about career growth",
+    subsections: [
+      {
+        slides: [
+          "The Common Belief About Success",
+          "Same Skills, Different Outcomes",
+          "Why Talent Alone Doesn't Explain Growth",
+          "Growth Beyond Software Skills",
+          "The Hidden Side of Professional Growth",
+          "The Core Question: What Creates Career Growth?"
+        ]
+      }
+    ]
+  },
+  {
+    segment: "Segment 2",
+    topic: "Learning Skills vs Building a Career",
+    duration: "15 min",
+    purpose: "Separate technical growth from professional growth",
+    subsections: [
+      {
+        slides: [
+          "The Learning Journey",
+          "The Career Journey",
+          "Student Mindset vs Professional Mindset",
+          "Learning Tasks vs Solving Problems",
+          "Software Skills vs Professional Skills",
+          "Why Most Creatives Focus Only on Technical Growth",
+          "The Skills Nobody Explicitly Teaches"
+        ]
+      }
+    ]
+  },
+  {
+    segment: "Segment 3",
+    topic: "Professional Behaviours That Influence Growth",
+    duration: "30 min",
+    purpose: "Introduce key behaviours that affect opportunities and career progression",
+    subsections: [
+      {
+        title: "Communication",
+        slides: [
+          "What Communication Really Means",
+          "Common Communication Mistakes",
+          "Why Communication Creates Trust"
+        ]
+      },
+      {
+        title: "Reliability",
+        slides: [
+          "Reliability vs Talent",
+          "Consistency Matters",
+          "Becoming Someone People Can Depend On"
+        ]
+      },
+      {
+        title: "Ownership",
+        slides: [
+          "Waiting for Instructions vs Taking Initiative",
+          "Problem Solvers vs Task Completers",
+          "Professional Responsibility"
+        ]
+      },
+      {
+        title: "Feedback",
+        slides: [
+          "Why Feedback Matters",
+          "Receiving Feedback Professionally",
+          "Growth Through Iteration"
+        ]
+      },
+      {
+        title: "Visibility",
+        slides: [
+          "Being Skilled vs Being Seen",
+          "Showing Your Work",
+          "Creating Opportunities Through Visibility"
+        ]
+      },
+      {
+        title: "Reflection Activity",
+        slides: [
+          "Self-Rating Exercise"
+        ]
+      }
+    ]
+  },
+  {
+    segment: "Segment 4",
+    topic: "Why Good Work Still Gets Ignored",
+    duration: "15 min",
+    purpose: "Introduce portfolio thinking, presentation and visibility",
+    subsections: [
+      {
+        slides: [
+          "The Portfolio Myth",
+          "Quantity vs Quality",
+          "Presentation Matters",
+          "Process Matters",
+          "Clarity Matters",
+          "Visibility Matters",
+          "Why Good Work Sometimes Gets Missed"
+        ]
+      }
+    ]
+  },
+  {
+    segment: "Segment 5",
+    topic: "Identify Your Biggest Growth Bottleneck",
+    duration: "10 min",
+    purpose: "Help attendees diagnose their primary growth challenge",
+    subsections: [
+      {
+        slides: [
+          "Skill Gap",
+          "Communication Gap",
+          "Reliability Gap",
+          "Portfolio Gap",
+          "Visibility Gap",
+          "Professional Mindset Gap",
+          "Self Assessment Matrix",
+          "Identify Your Primary Bottleneck"
+        ]
+      }
+    ]
+  },
+  {
+    segment: "Segment 6",
+    topic: "What Should You Focus On Next?",
+    duration: "10 min",
+    purpose: "Provide direction and next steps",
+    subsections: [
+      {
+        slides: [
+          "Don't Fix Everything At Once",
+          "One Bottleneck, One Focus",
+          "Choosing The Right Next Step",
+          "30-Day Improvement Mindset",
+          "Building Professional Momentum",
+          "Growth Is Intentional"
+        ]
+      }
+    ]
+  },
+  {
+    segment: "Q&A + Dramantram Academy",
+    topic: "Wrap Up, Questions & Academy Introduction",
+    duration: "10 min",
+    purpose: "Consolidate learning and introduce future growth pathways",
+    subsections: [
+      {
+        slides: [
+          "Key Takeaways",
+          "What We Learned Today",
+          "What We Didn't Cover Today",
+          "Future Webinar Topics",
+          "Dramantram Academy Approach",
+          "Community & Learning Path",
+          "Q&A",
+          "Closing Thoughts"
+        ]
+      }
+    ]
+  }
+];
+
 const WebinarPage: React.FC = () => {
   const formRef = useRef<HTMLFormElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -70,12 +294,14 @@ const WebinarPage: React.FC = () => {
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
   const recaptchaRef = useRef<ReCAPTCHA>(null);
   const [captchaToken, setCaptchaToken] = useState<string | null>(null);
+  const [expandedSegment, setExpandedSegment] = useState<number | null>(0); // Default first one open
 
   const onCaptchaChange = (token: string | null) => {
     setCaptchaToken(token);
   };
-  // Set target date to May 30, 2026 11:00 AM
-  const webinarDate = new Date("2026-05-30T11:00:00");
+  
+  // Set target date to Sunday, June 28, 2026 11:00 AM (relative to local time June 13, 2026)
+  const webinarDate = new Date("2026-06-28T11:00:00");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -120,6 +346,10 @@ const WebinarPage: React.FC = () => {
     }
   };
 
+  const toggleSegment = (index: number) => {
+    setExpandedSegment(expandedSegment === index ? null : index);
+  };
+
   return (
     <div className="pt-20 bg-black min-h-screen text-white font-inter">
       {/* 1. HERO SECTION */}
@@ -132,33 +362,32 @@ const WebinarPage: React.FC = () => {
             <div className="flex items-center gap-6 mb-6 text-sm font-bold text-gray-300 uppercase tracking-widest border-b border-white/10 pb-4 inline-flex w-fit">
               <div>
                 <span className="text-[#FFD700] block text-[10px]">Date</span>
-                30 May, 2026
+                28 June, 2026
               </div>
               <div className="w-px h-8 bg-white/20"></div>
               <div>
                 <span className="text-[#FFD700] block text-[10px]">Time</span>
-                11:00 AM
+                11:00 AM IST
+              </div>
+              <div className="w-px h-8 bg-white/20"></div>
+              <div>
+                <span className="text-[#FFD700] block text-[10px]">Duration</span>
+                120 Mins
               </div>
             </div>
 
-            <h1 className="oswald text-5xl md:text-6xl lg:text-7xl font-black uppercase tracking-tighter leading-[1.1] mb-6">
-              3D Creatives: <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF0000] to-[#FFD700]">Freelancing vs Job</span>
+            <h1 className="oswald text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tighter leading-[1.1] mb-6">
+              The Difference Between a <span className="text-[#FF3B30] drop-shadow-[0_0_15px_rgba(255,59,48,0.2)]">₹25K</span> and a <span className="text-[#39FF14] drop-shadow-[0_0_15px_rgba(57,255,20,0.3)]">₹1 Lakh</span> <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">Designer & Animator</span>
             </h1>
 
             <p className="text-gray-400 text-base md:text-lg max-w-lg mb-8 leading-relaxed">
-              You've been learning 3D. You can make renders. So why does it still feel like you're going nowhere? Get clarity on your career direction, portfolio first steps, and real industry expectations.
+              Why do some creatives plateau at ₹25K/month while others scale to ₹1 Lakh/month and beyond? Join this 120-minute masterclass to learn the professional behaviors, mindsets, and portfolio strategies that bridge the gap.
             </p>
 
             <div className="mb-8">
               <h3 className="oswald text-xl uppercase tracking-widest font-bold text-white">Webinar Starts In:</h3>
               <CountdownTimer targetDate={webinarDate} />
             </div>
-
-            {/* 
-            <button onClick={scrollToForm} className="hidden lg:inline-block w-fit px-8 py-4 bg-white text-black font-black uppercase tracking-widest rounded hover:bg-gray-200 transition-colors">
-              Learn More
-            </button> */}
-
           </div>
 
           {/* Right: Video & Form */}
@@ -196,7 +425,7 @@ const WebinarPage: React.FC = () => {
                 </div>
               ) : (
                 <form ref={formRef} onSubmit={handleSubmit} className="space-y-5">
-                  <input type="hidden" name="title" value="Webinar" />
+                  <input type="hidden" name="title" value="Webinar #2: ₹25K vs ₹1L Designer" />
                   <input type="hidden" name="domain_expertise" value="N/A" />
                   <input type="hidden" name="enquiry" value="N/A" />
 
@@ -236,7 +465,7 @@ const WebinarPage: React.FC = () => {
                     />
                   </div>
 
-                  <button type="submit" disabled={status === "sending"} className="w-full py-4 mt-2 bg-gradient-to-r from-[#111] to-[#222] border border-white/20 hover:border-white/50 text-white font-black uppercase tracking-widest rounded-lg transition-all flex items-center justify-center">
+                  <button type="submit" disabled={status === "sending"} className="w-full py-4 mt-2 bg-gradient-to-r from-[#111] to-[#222] border border-white/20 hover:border-white/50 text-white font-black uppercase tracking-widest rounded-lg transition-all flex items-center justify-center cursor-pointer">
                     {status === "sending" ? "Registering..." : "Register Now"}
                   </button>
                   {status === "error" && <p className="text-red-500 text-xs text-center mt-2">Error sending registration. Try again.</p>}
@@ -250,12 +479,10 @@ const WebinarPage: React.FC = () => {
       {/* 2. SPEAKERS SECTION */}
       <section className="py-24 bg-zinc-950 border-b border-white/5">
         <div className="max-w-7xl mx-auto px-6">
-          {/* Added text-center here to center the heading */}
           <h2 className="oswald text-4xl md:text-5xl font-black uppercase tracking-tighter mb-16 text-center">
             Webinar Speakers
           </h2>
 
-          {/* Added mx-auto here to center the grid block itself */}
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <div className="flex gap-6 items-center p-6 bg-white/5 border border-white/10 rounded-2xl">
               <div className="w-24 h-24 bg-zinc-800 rounded-xl overflow-hidden shrink-0">
@@ -263,9 +490,9 @@ const WebinarPage: React.FC = () => {
               </div>
               <div>
                 <h3 className="oswald text-2xl font-black uppercase mb-1">Mohammad Shadab</h3>
-                <p className="text-[#FFD700] text-xs font-bold uppercase tracking-widest mb-3">Senior 3D Artist</p>
+                <p className="text-[#FFD700] text-xs font-bold uppercase tracking-widest mb-3">Senior 3D Artist & Mentor</p>
                 <p className="text-gray-400 text-sm">
-                  Years of experience helping freshers land their first studio job and navigate the complex 3D industry.
+                  Specializes in teaching advanced workflows, scene-building pipelines, and professional standards that command premium industry salaries.
                 </p>
               </div>
             </div>
@@ -278,7 +505,7 @@ const WebinarPage: React.FC = () => {
                 <h3 className="oswald text-2xl font-black uppercase mb-1">Kundan Kumar</h3>
                 <p className="text-[#FFD700] text-xs font-bold uppercase tracking-widest mb-3">Co-Founder, Dramantram</p>
                 <p className="text-gray-400 text-sm">
-                  Insights into the real hiring process, art tests, and what makes a portfolio stand out.
+                  Direct recruiter and studio lead, sharing years of hiring insights on what separates standard portfolios from top-tier professionals.
                 </p>
               </div>
             </div>
@@ -298,9 +525,9 @@ const WebinarPage: React.FC = () => {
               <div className="w-16 h-16 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mb-6 text-[#FFD700]">
                 <Lightbulb size={28} />
               </div>
-              <h3 className="oswald text-2xl font-black uppercase mb-4">Industry Reality Check</h3>
+              <h3 className="oswald text-2xl font-black uppercase mb-4">Professional vs Software Skills</h3>
               <p className="text-gray-400 text-sm leading-relaxed">
-                Understand what companies actually want from freshers: problem-solvers, not just software operators.
+                Understand why raw tool mastery (Maya, Blender, Unreal) is only 30% of your career growth, and how the unseen 70% of professional skills drives salary jumps.
               </p>
             </div>
 
@@ -308,9 +535,9 @@ const WebinarPage: React.FC = () => {
               <div className="w-16 h-16 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mb-6 text-[#FF0000]">
                 <Briefcase size={28} />
               </div>
-              <h3 className="oswald text-2xl font-black uppercase mb-4">Freelancing vs Job</h3>
+              <h3 className="oswald text-2xl font-black uppercase mb-4">Gaining Professional Trust</h3>
               <p className="text-gray-400 text-sm leading-relaxed">
-                Compare realistic paths, income timelines, and learn how to position yourself for success.
+                Discover the behavioral archetypes (Ownership, Speed, Communication) that build trust, allowing you to bypass typical gatekeepers and command high-value roles.
               </p>
             </div>
 
@@ -318,9 +545,9 @@ const WebinarPage: React.FC = () => {
               <div className="w-16 h-16 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mb-6 text-white">
                 <FileImage size={28} />
               </div>
-              <h3 className="oswald text-2xl font-black uppercase mb-4">Portfolio Creation</h3>
+              <h3 className="oswald text-2xl font-black uppercase mb-4">High-Value Portfolio Strategy</h3>
               <p className="text-gray-400 text-sm leading-relaxed">
-                Learn how to build your first 3 portfolio pieces that actually get you hired or win clients.
+                Learn why standard tutorial renders fail to attract premium jobs, and how to structure process-driven case studies that show you solve real business problems.
               </p>
             </div>
           </div>
@@ -340,28 +567,28 @@ const WebinarPage: React.FC = () => {
             {[
               {
                 number: "01",
-                title: "Clarity on YOUR Path",
-                desc: "A clear, honest picture of which path — freelancing or studio — actually fits your situation right now."
+                title: "Spot Your Core Bottleneck",
+                desc: "Accurately diagnose if your career plateau is due to a skill gap, portfolio gap, visibility gap, reliability gap, or communication gap."
               },
               {
                 number: "02",
-                title: "Realistic Expectations",
-                desc: "What freelancing and studio jobs look like in the beginning. Not the Instagram version. The real one."
+                title: "Transition to Value-Provider",
+                desc: "Adopt a professional mindset, moving from waiting for task sheets to taking active ownership and solving complex studio problems."
               },
               {
                 number: "03",
-                title: "Portfolio Direction",
-                desc: "What your portfolio needs to say, and what's holding most fresher portfolios back."
+                title: "Build Process-Rich Case Studies",
+                desc: "Shift your portfolio strategy from output quantity to process quality, documenting your design path to impress studio directors."
               },
               {
                 number: "04",
-                title: "Mistakes to Avoid",
-                desc: "The 6 most common traps that keep freshers stuck for months — and how to skip past them."
+                title: "Execute Flawless Communication",
+                desc: "Apply clean communication templates, manage critiques professionally, and establish consistency that turns clients into repeat accounts."
               },
               {
                 number: "05",
-                title: "A Concrete Starting Plan",
-                desc: "A 90-day action plan you can begin this week, regardless of which path you choose."
+                title: "Launch a Focused 30-Day Plan",
+                desc: "Leave the masterclass with a customized 30-day action plan that systematically solves your single most critical growth bottleneck."
               }
             ].map((item, idx) => (
               <div
@@ -382,19 +609,21 @@ const WebinarPage: React.FC = () => {
         </div>
       </section>
 
-      {/* 5. SCHEDULE SECTION */}
+      {/* 5. INTERACTIVE SCHEDULE/STRUCTURE SECTION */}
       <section className="py-24 bg-zinc-950 border-b border-white/5 relative">
-        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 lg:gap-8">
+        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-16 lg:gap-12">
 
           {/* Left side text */}
-          <div className="lg:pr-12">
-            <h2 className="oswald text-4xl md:text-5xl font-black uppercase tracking-tighter mb-6">Webinar Schedule</h2>
-            <p className="text-gray-400 mb-10 leading-relaxed max-w-md">
-              Provide an overview of the webinar's structure so participants gain an in-depth understanding of what to expect during the session.
-            </p>
-            <button onClick={scrollToForm} className="px-8 py-4 bg-white text-black font-black uppercase tracking-widest rounded hover:bg-gray-200 transition-colors mb-12">
-              Register Now
-            </button>
+          <div className="lg:col-span-5 lg:pr-8 flex flex-col justify-between">
+            <div>
+              <h2 className="oswald text-4xl md:text-5xl font-black uppercase tracking-tighter mb-6">Webinar Curriculum</h2>
+              <p className="text-gray-400 mb-8 leading-relaxed">
+                Click through the modules of our 120-minute masterclass curriculum to explore the exact topics, slides, and learning goals covered in each segment.
+              </p>
+              <button onClick={scrollToForm} className="px-8 py-4 bg-white text-black font-black uppercase tracking-widest rounded hover:bg-gray-200 transition-colors mb-12 cursor-pointer">
+                Register Now
+              </button>
+            </div>
 
             <div className="pt-8 border-t border-white/10">
               <h3 className="oswald text-xl uppercase tracking-widest font-bold text-white mb-4">Webinar Starts In:</h3>
@@ -402,33 +631,112 @@ const WebinarPage: React.FC = () => {
             </div>
           </div>
 
-          {/* Right side timeline */}
-          <div className="relative border-l border-white/20 pl-8 space-y-12 pb-12">
-            {[
-              { time: "11:00 AM", title: "Welcome & Opening Hook", desc: "Setting the stage: Why does it feel like you're going nowhere in 3D?" },
-              { time: "11:20 AM", title: "Creative Industry Reality Check", desc: "The bar is rising. What companies really want from freshers today." },
-              { time: "11:30 AM", title: "Freelancing vs Job Path", desc: "The real comparison. Income timelines, hiring processes, and making a choice." },
-              { time: "11:50 AM", title: "Portfolio Creation for 3D Freshers", desc: "Why you don't need 20 projects, just 3 great ones. Avoiding the tutorial trap." },
-              { time: "12:05 PM", title: "What Makes You Industry-Ready", desc: "Technical skill + professional skill. How Dramantram Academy closes the gap." },
-              { time: "12:15 PM", title: "Live Q&A Session", desc: "We answer your direct questions about pricing, software, and getting jobs." },
-            ].map((item, idx) => (
-              <div key={idx} className="relative">
-                {/* Timeline dot */}
-                <div className="absolute -left-[41px] top-1 w-4 h-4 bg-black border-2 border-[#FFD700] rounded-full"></div>
+          {/* Right side interactive Accordion */}
+          <div className="lg:col-span-7 space-y-4">
+            {WEBINAR_CURRICULUM.map((segment, idx) => {
+              const isOpen = expandedSegment === idx;
+              
+              // Custom icons for the segments to make it visually premium
+              let Icon = Award;
+              if (idx === 0) Icon = HelpCircle;
+              else if (idx === 1) Icon = TrendingUp;
+              else if (idx === 2) Icon = Lightbulb;
+              else if (idx === 3) Icon = ShieldAlert;
+              else if (idx === 4) Icon = Eye;
+              else if (idx === 5) Icon = Target;
+              else if (idx === 6) Icon = MessageSquare;
+              
+              return (
+                <div 
+                  key={idx} 
+                  className={`border rounded-xl transition-all duration-300 ${
+                    isOpen 
+                      ? "bg-[#FF0000]/5 border-[#FF0000]/40 shadow-[0_0_20px_rgba(255,0,0,0.05)]" 
+                      : "bg-zinc-900/40 border-white/5 hover:border-white/15"
+                  }`}
+                >
+                  <button 
+                    onClick={() => toggleSegment(idx)}
+                    className="w-full flex items-center justify-between p-5 text-left focus:outline-none cursor-pointer"
+                  >
+                    <div className="flex items-center gap-4">
+                      <div className={`w-10 h-10 rounded-lg flex items-center justify-center shrink-0 transition-colors ${
+                        isOpen ? "bg-[#FF0000] text-white" : "bg-white/5 text-gray-400"
+                      }`}>
+                        <Icon size={18} />
+                      </div>
+                      <div>
+                        <span className="text-[10px] font-black uppercase tracking-wider text-[#FFD700] block mb-1">
+                          {segment.segment} • {segment.duration}
+                        </span>
+                        <h4 className="oswald text-lg font-bold uppercase text-white tracking-wide">
+                          {segment.topic}
+                        </h4>
+                      </div>
+                    </div>
+                    <div>
+                      {isOpen ? <ChevronUp className="text-gray-400" /> : <ChevronDown className="text-gray-400" />}
+                    </div>
+                  </button>
 
-                <div className="inline-block px-3 py-1 bg-white/10 text-[#FFD700] text-[10px] font-black tracking-widest uppercase rounded mb-3">
-                  {item.time}
+                  <div className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                    isOpen ? "max-h-[1000px] border-t border-white/5" : "max-h-0"
+                  }`}>
+                    <div className="p-5 space-y-5">
+                      <div className="flex items-start gap-3 bg-white/5 p-4 rounded-lg border border-white/5">
+                        <Target size={16} className="text-[#FFD700] shrink-0 mt-0.5" />
+                        <div>
+                          <span className="text-[10px] font-black uppercase tracking-widest text-[#FFD700] block mb-0.5">LEARNING PURPOSE</span>
+                          <p className="text-gray-300 text-sm leading-relaxed">{segment.purpose}</p>
+                        </div>
+                      </div>
+
+                      <div>
+                        <span className="text-[10px] font-black uppercase tracking-widest text-gray-400 block mb-3">COVERED MODULES & SLIDES</span>
+                        
+                        {/* Render Segment 3's grouped subheadings if it's segment index 3 */}
+                        {idx === 3 ? (
+                          <div className="grid sm:grid-cols-2 gap-4">
+                            {segment.subsections.map((sub, sIdx) => (
+                              <div key={sIdx} className="bg-white/5 p-4 rounded-lg border border-white/5 flex flex-col justify-between">
+                                <div>
+                                  <span className="text-[11px] font-bold text-[#FFD700] uppercase tracking-wider block mb-2 pb-1 border-b border-white/10">
+                                    {sub.title}
+                                  </span>
+                                  <ul className="space-y-1.5">
+                                    {sub.slides.map((slide, slIdx) => (
+                                      <li key={slIdx} className="text-xs text-gray-400 flex items-start gap-2">
+                                        <span className="text-[#FF0000] font-black shrink-0 mt-0.5">•</span>
+                                        <span>{slide}</span>
+                                      </li>
+                                    ))}
+                                  </ul>
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        ) : (
+                          <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-2">
+                            {segment.subsections[0].slides.map((slide, slIdx) => (
+                              <li key={slIdx} className="text-sm text-gray-400 flex items-start gap-2">
+                                <span className="text-[#FF0000] font-black shrink-0 mt-0.5">•</span>
+                                <span>{slide}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <h4 className="oswald text-xl font-bold uppercase mb-2">{item.title}</h4>
-                <p className="text-gray-400 text-sm max-w-sm">{item.desc}</p>
-              </div>
-            ))}
-            <div className="absolute -left-[41px] bottom-0 w-4 h-4 bg-black border-2 border-white/20 rounded-full"></div>
+              );
+            })}
           </div>
+
         </div>
       </section>
 
-      {/* 4. AI NEWS SECTION */}
+      {/* 6. AI NEWS SECTION */}
       <section className="py-20 bg-black border-b border-white/5">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
@@ -451,15 +759,15 @@ const WebinarPage: React.FC = () => {
         </div>
       </section>
 
-      {/* 5. FINAL CTA SECTION */}
+      {/* 7. FINAL CTA SECTION */}
       <section className="py-24 bg-black text-center relative overflow-hidden">
         <div className="absolute inset-0 bg-red-radial opacity-30"></div>
         <div className="max-w-3xl mx-auto px-6 relative z-10">
           <h2 className="oswald text-5xl md:text-7xl font-black uppercase tracking-tighter mb-6">Register Today!</h2>
           <p className="text-gray-400 mb-10 max-w-xl mx-auto text-lg">
-            Don't miss out on this opportunity to clarify your 3D career path. Space is limited, secure your spot now.
+            Don't miss out on this opportunity to identify your growth bottlenecks and bridge the gap to high-value design salaries. Secure your spot now.
           </p>
-          <button onClick={scrollToForm} className="px-10 py-5 bg-[#FF0000] hover:bg-[#CC0000] text-white text-lg font-black uppercase tracking-widest rounded-lg transition-colors shadow-[0_0_30px_rgba(255,0,0,0.3)]">
+          <button onClick={scrollToForm} className="px-10 py-5 bg-[#FF0000] hover:bg-[#CC0000] text-white text-lg font-black uppercase tracking-widest rounded-lg transition-colors shadow-[0_0_30px_rgba(255,0,0,0.3)] cursor-pointer">
             Register Now
           </button>
         </div>
