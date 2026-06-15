@@ -301,7 +301,7 @@ const WebinarPage: React.FC = () => {
   };
   
   // Set target date to Sunday, June 28, 2026 11:00 AM (relative to local time June 13, 2026)
-  const webinarDate = new Date("2026-06-28T11:00:00");
+  const webinarDate = new Date("2026-06-28T10:30:00");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -358,16 +358,16 @@ const WebinarPage: React.FC = () => {
 
         <div className="max-w-7xl mx-auto px-6 relative z-10 grid lg:grid-cols-2 gap-12 lg:gap-20">
           {/* Left: Info */}
-          <div className="flex flex-col justify-center">
+          <div className="flex flex-col justify-start lg:pt-4">
             <div className="flex items-center gap-6 mb-6 text-sm font-bold text-gray-300 uppercase tracking-widest border-b border-white/10 pb-4 inline-flex w-fit">
               <div>
                 <span className="text-[#FFD700] block text-[10px]">Date</span>
-                28 June, 2026
+                27 June, 2026
               </div>
               <div className="w-px h-8 bg-white/20"></div>
               <div>
                 <span className="text-[#FFD700] block text-[10px]">Time</span>
-                11:00 AM IST
+                10:30 AM IST
               </div>
               <div className="w-px h-8 bg-white/20"></div>
               <div>
@@ -391,13 +391,14 @@ const WebinarPage: React.FC = () => {
           </div>
 
           {/* Right: Video & Form */}
-          <div className="flex flex-col">
+          <div className="flex flex-col max-w-[470px] mx-auto lg:mr-0 w-full">
             {/* Video Placeholder */}
             <div
-              className={`bg-zinc-950 w-full aspect-video rounded-t-2xl border border-white/10 flex flex-col items-center justify-center relative overflow-hidden group ${!isPlaying ? 'cursor-pointer' : ''}`}
+              className={`bg-zinc-950 w-full aspect-square rounded-t-2xl border border-white/10 flex flex-col items-center justify-center relative overflow-hidden group ${!isPlaying ? 'cursor-pointer' : ''}`}
               onClick={!isPlaying ? handlePlayVideo : undefined}
             >
-              <video
+              <img src="/webinar.jpeg" alt="Webinar" className="w-full h-full object-cover"/>
+              {/* <video
                 ref={videoRef}
                 src="/reel.mp4"
                 className={`absolute inset-0 w-full h-full ${isPlaying ? 'object-contain bg-black' : 'object-cover opacity-40 group-hover:opacity-50 transition-opacity'}`}
@@ -412,7 +413,7 @@ const WebinarPage: React.FC = () => {
                     <Play className="ml-1" size={24} fill="currentColor" />
                   </div>
                 </>
-              )}
+              )} */}
             </div>
 
             {/* Registration Form */}
