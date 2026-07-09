@@ -1,15 +1,15 @@
 import React, { useState, useEffect, useRef } from "react";
 import emailjs from "@emailjs/browser";
-import { 
-  User, 
-  Mail, 
-  Play, 
-  Briefcase, 
-  FileImage, 
-  Lightbulb, 
-  CheckCircle, 
-  Clock, 
-  Phone, 
+import {
+  User,
+  Mail,
+  Play,
+  Briefcase,
+  FileImage,
+  Lightbulb,
+  CheckCircle,
+  Clock,
+  Phone,
   BarChart,
   ChevronDown,
   ChevronUp,
@@ -99,188 +99,168 @@ interface CurriculumSegment {
 
 const WEBINAR_CURRICULUM: CurriculumSegment[] = [
   {
-    segment: "Introduction",
-    topic: "Welcome, Context & Expectations",
-    duration: "15 min",
-    purpose: "Set context and establish the central question of the webinar",
+    segment: "Warmup & Hook",
+    topic: "Pre-Webinar Warmup & Opening Hook",
+    duration: "8 min",
+    purpose: "Set the stage, get to know the audience, and open with a cold story hook",
     subsections: [
       {
         slides: [
-          "Welcome & Introduction",
-          "About Dramantram Academy",
-          "Audience Poll",
-          "Why This Webinar?",
-          "The Question We Are Exploring Today",
-          "What This Webinar Is Not",
-          "Session Roadmap"
+          "Pre-Webinar Warmup: Chat warm-up question on screen",
+          "Opening Hook: Story-first cold open"
         ]
       }
     ]
   },
   {
-    segment: "Segment 1",
-    topic: "Why Some Creatives Grow Faster Than Others",
-    duration: "15 min",
-    purpose: "Challenge common assumptions about career growth",
+    segment: "Module 1",
+    topic: "The Freeze Moment",
+    duration: "8 min",
+    purpose: "Discuss why creative professionals freeze when asked about rates",
     subsections: [
       {
         slides: [
-          "The Common Belief About Success",
-          "Same Skills, Different Outcomes",
-          "Why Talent Alone Doesn't Explain Growth",
-          "Growth Beyond Software Skills",
-          "The Hidden Side of Professional Growth",
-          "The Core Question: What Creates Career Growth?"
+          "Understanding the Freeze Moment",
+          "Live Poll: How do you currently price your work?"
         ]
       }
     ]
   },
   {
-    segment: "Segment 2",
-    topic: "Learning Skills vs Building a Career",
-    duration: "15 min",
-    purpose: "Separate technical growth from professional growth",
-    subsections: [
-      {
-        slides: [
-          "The Learning Journey",
-          "The Career Journey",
-          "Student Mindset vs Professional Mindset",
-          "Learning Tasks vs Solving Problems",
-          "Software Skills vs Professional Skills",
-          "Why Most Creatives Focus Only on Technical Growth",
-          "The Skills Nobody Explicitly Teaches"
-        ]
-      }
-    ]
-  },
-  {
-    segment: "Segment 3",
-    topic: "Professional Behaviours That Influence Growth",
-    duration: "30 min",
-    purpose: "Introduce key behaviours that affect opportunities and career progression",
-    subsections: [
-      {
-        title: "Communication",
-        slides: [
-          "What Communication Really Means",
-          "Common Communication Mistakes",
-          "Why Communication Creates Trust"
-        ]
-      },
-      {
-        title: "Reliability",
-        slides: [
-          "Reliability vs Talent",
-          "Consistency Matters",
-          "Becoming Someone People Can Depend On"
-        ]
-      },
-      {
-        title: "Ownership",
-        slides: [
-          "Waiting for Instructions vs Taking Initiative",
-          "Problem Solvers vs Task Completers",
-          "Professional Responsibility"
-        ]
-      },
-      {
-        title: "Feedback",
-        slides: [
-          "Why Feedback Matters",
-          "Receiving Feedback Professionally",
-          "Growth Through Iteration"
-        ]
-      },
-      {
-        title: "Visibility",
-        slides: [
-          "Being Skilled vs Being Seen",
-          "Showing Your Work",
-          "Creating Opportunities Through Visibility"
-        ]
-      },
-      {
-        title: "Reflection Activity",
-        slides: [
-          "Self-Rating Exercise"
-        ]
-      }
-    ]
-  },
-  {
-    segment: "Segment 4",
-    topic: "Why Good Work Still Gets Ignored",
-    duration: "15 min",
-    purpose: "Introduce portfolio thinking, presentation and visibility",
-    subsections: [
-      {
-        slides: [
-          "The Portfolio Myth",
-          "Quantity vs Quality",
-          "Presentation Matters",
-          "Process Matters",
-          "Clarity Matters",
-          "Visibility Matters",
-          "Why Good Work Sometimes Gets Missed"
-        ]
-      }
-    ]
-  },
-  {
-    segment: "Segment 5",
-    topic: "Identify Your Biggest Growth Bottleneck",
+    segment: "Module 2",
+    topic: "The Advice Graveyard",
     duration: "10 min",
-    purpose: "Help attendees diagnose their primary growth challenge",
+    purpose: "Deconstruct popular but misleading pricing advice",
     subsections: [
       {
         slides: [
-          "Skill Gap",
-          "Communication Gap",
-          "Reliability Gap",
-          "Portfolio Gap",
-          "Visibility Gap",
-          "Professional Mindset Gap",
-          "Self Assessment Matrix",
-          "Identify Your Primary Bottleneck"
+          "5 Pricing Myths",
+          "Audience Myth-Busting Chat Interaction"
         ]
       }
     ]
   },
   {
-    segment: "Segment 6",
-    topic: "What Should You Focus On Next?",
+    segment: "Module 3",
+    topic: "What Clients Actually Buy",
     duration: "10 min",
-    purpose: "Provide direction and next steps",
+    purpose: "Shift focus from raw hourly rates to the Value Stack framework",
     subsections: [
       {
         slides: [
-          "Don't Fix Everything At Once",
-          "One Bottleneck, One Focus",
-          "Choosing The Right Next Step",
-          "30-Day Improvement Mindset",
-          "Building Professional Momentum",
-          "Growth Is Intentional"
+          "Hours vs. Solutions",
+          "The Value Stack Framework"
         ]
       }
     ]
   },
   {
-    segment: "Q&A + Dramantram Academy",
-    topic: "Wrap Up, Questions & Academy Introduction",
-    duration: "10 min",
-    purpose: "Consolidate learning and introduce future growth pathways",
+    segment: "Module 4",
+    topic: "The 6-Stage Quote (Core Framework)",
+    duration: "20 min",
+    purpose: "Step-by-step masterclass on the 6-Stage Quote framework",
+    subsections: [
+      {
+        title: "Stages 1 - 3",
+        slides: [
+          "Stage 1: UNDERSTAND (Output: Project Brief) - Avoid quoting before understanding",
+          "Stage 2: DEFINE (Output: Scope Document) - Prevent vague scopes and scope creep",
+          "Stage 3: ESTIMATE (Output: Hour Estimate) - Include revisions & meetings"
+        ]
+      },
+      {
+        title: "Stages 4 - 6",
+        slides: [
+          "Stage 4: COST (Output: Minimum Sustainable Rate) - Know your floor rate",
+          "Stage 5: ADJUST (Output: Value-Based Price) - Value-based pricing without random discounts",
+          "Stage 6: QUOTE (Output: Professional Proposal) - Send a document, not a chat message"
+        ]
+      }
+    ]
+  },
+  {
+    segment: "Module 5",
+    topic: "Live Walkthrough",
+    duration: "15 min",
+    purpose: "Watch the 6-stage quoting system applied to a real project in real-time",
     subsections: [
       {
         slides: [
-          "Key Takeaways",
-          "What We Learned Today",
-          "What We Didn't Cover Today",
-          "Future Webinar Topics",
-          "Dramantram Academy Approach",
-          "Community & Learning Path",
-          "Q&A",
-          "Closing Thoughts"
+          "Real project quoted in real-time",
+          "Applying MSR (Minimum Sustainable Rate)",
+          "Formulating the Professional Proposal document"
+        ]
+      }
+    ]
+  },
+  {
+    segment: "Module 6",
+    topic: "Rapid Case Studies",
+    duration: "12 min",
+    purpose: "Analyze 3 real-world design pricing scenarios",
+    subsections: [
+      {
+        slides: [
+          "Case Study 1: Underquoting and Scope Creep",
+          "Case Study 2: Value-Based Pricing Pivot",
+          "Case Study 3: Hourly vs Flat-Rate Comparison",
+          "Audience interactive Q&A format"
+        ]
+      }
+    ]
+  },
+  {
+    segment: "Module 7",
+    topic: "The Pricing Conversation",
+    duration: "10 min",
+    purpose: "Actionable scripts for discussing rates and pricing with clients",
+    subsections: [
+      {
+        slides: [
+          "Scripts for answering 'What is your hourly rate?'",
+          "Handling budget pushbacks & negotiations with confidence"
+        ]
+      }
+    ]
+  },
+  {
+    segment: "Module 8",
+    topic: "Mistakes That Cost Money",
+    duration: "7 min",
+    purpose: "Highlight and avoid common mistakes that drain creative revenue",
+    subsections: [
+      {
+        slides: [
+          "7 Common Creative Pricing Errors",
+          "Interactive Poll: Which mistake are you making?"
+        ]
+      }
+    ]
+  },
+  {
+    segment: "Module 9",
+    topic: "Your Next Project Starts Now",
+    duration: "7 min",
+    purpose: "Equip attendees with tools and prompts to start pricing professionally immediately",
+    subsections: [
+      {
+        slides: [
+          "Webinar Toolkit Reveal",
+          "Commitment Prompt to action"
+        ]
+      }
+    ]
+  },
+  {
+    segment: "Module 10",
+    topic: "Q&A + Academy Close",
+    duration: "10 min",
+    purpose: "Address scenario-based Q&A and close with a natural call to action",
+    subsections: [
+      {
+        slides: [
+          "Scenario Q&A with Kundan & Shadab",
+          "Natural CTA & Academy close"
         ]
       }
     ]
@@ -299,9 +279,9 @@ const WebinarPage: React.FC = () => {
   const onCaptchaChange = (token: string | null) => {
     setCaptchaToken(token);
   };
-  
-  // Set target date to Sunday, June 28, 2026 11:00 AM (relative to local time June 13, 2026)
-  const webinarDate = new Date("2026-06-28T10:30:00");
+
+  // Set target date to Saturday, July 25, 2026 10:30 AM IST
+  const webinarDate = new Date("2026-07-25T10:30:00");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -362,7 +342,7 @@ const WebinarPage: React.FC = () => {
             <div className="flex items-center gap-6 mb-6 text-sm font-bold text-gray-300 uppercase tracking-widest border-b border-white/10 pb-4 inline-flex w-fit">
               <div>
                 <span className="text-[#FFD700] block text-[10px]">Date</span>
-                27 June, 2026
+                25 July, 2026
               </div>
               <div className="w-px h-8 bg-white/20"></div>
               <div>
@@ -372,16 +352,16 @@ const WebinarPage: React.FC = () => {
               <div className="w-px h-8 bg-white/20"></div>
               <div>
                 <span className="text-[#FFD700] block text-[10px]">Duration</span>
-                120 Mins
+                90 Mins
               </div>
             </div>
 
             <h1 className="oswald text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tighter leading-[1.1] mb-6">
-              The Difference Between a <span className="text-[#FF3B30] drop-shadow-[0_0_15px_rgba(255,59,48,0.2)]">₹25K</span> and a <span className="text-[#39FF14] drop-shadow-[0_0_15px_rgba(57,255,20,0.3)]">₹1 Lakh</span> <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">Designer & Animator</span>
+              Someone Asked Me My Hourly Rate... <span className="text-[#FF3B30] drop-shadow-[0_0_15px_rgba(255,59,48,0.2)]">and I Froze.</span>
             </h1>
 
             <p className="text-gray-400 text-base md:text-lg max-w-lg mb-8 leading-relaxed">
-              Why do some creatives plateau at ₹25K/month while others scale to ₹1 Lakh/month and beyond? Join this 120-minute masterclass to learn the professional behaviors, mindsets, and portfolio strategies that bridge the gap.
+              A Practical Pricing System for Creative Professionals. Stop guessing hourly rates, deal with client pricing conversations with confidence, and build a sustainable creative business.
             </p>
 
             <div className="mb-8">
@@ -397,7 +377,7 @@ const WebinarPage: React.FC = () => {
               className={`bg-zinc-950 w-full aspect-square rounded-t-2xl border border-white/10 flex flex-col items-center justify-center relative overflow-hidden group ${!isPlaying ? 'cursor-pointer' : ''}`}
               onClick={!isPlaying ? handlePlayVideo : undefined}
             >
-              <img src="/webinar.jpeg" alt="Webinar" className="w-full h-full object-cover"/>
+              <img src="/webinar.jpeg" alt="Webinar" className="w-full h-full object-cover" />
               {/* <video
                 ref={videoRef}
                 src="/reel.mp4"
@@ -426,7 +406,7 @@ const WebinarPage: React.FC = () => {
                 </div>
               ) : (
                 <form ref={formRef} onSubmit={handleSubmit} className="space-y-5">
-                  <input type="hidden" name="title" value="Webinar #2: ₹25K vs ₹1L Designer" />
+                  <input type="hidden" name="title" value="Webinar #2: Pricing System for Creative Professionals" />
                   <input type="hidden" name="domain_expertise" value="N/A" />
                   <input type="hidden" name="enquiry" value="N/A" />
 
@@ -526,9 +506,9 @@ const WebinarPage: React.FC = () => {
               <div className="w-16 h-16 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mb-6 text-[#FFD700]">
                 <Lightbulb size={28} />
               </div>
-              <h3 className="oswald text-2xl font-black uppercase mb-4">Professional vs Software Skills</h3>
+              <h3 className="oswald text-2xl font-black uppercase mb-4">Calculate Your Floor</h3>
               <p className="text-gray-400 text-sm leading-relaxed">
-                Understand why raw tool mastery (Maya, Blender, Unreal) is only 30% of your career growth, and how the unseen 70% of professional skills drives salary jumps.
+                Learn how to calculate your Minimum Sustainable Rate (MSR) so you never quote under your costs or leave money on the table.
               </p>
             </div>
 
@@ -536,9 +516,9 @@ const WebinarPage: React.FC = () => {
               <div className="w-16 h-16 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mb-6 text-[#FF0000]">
                 <Briefcase size={28} />
               </div>
-              <h3 className="oswald text-2xl font-black uppercase mb-4">Gaining Professional Trust</h3>
+              <h3 className="oswald text-2xl font-black uppercase mb-4">Value-Based Pricing</h3>
               <p className="text-gray-400 text-sm leading-relaxed">
-                Discover the behavioral archetypes (Ownership, Speed, Communication) that build trust, allowing you to bypass typical gatekeepers and command high-value roles.
+                Understand what clients actually buy and adjust your price based on project value, not just hours worked.
               </p>
             </div>
 
@@ -546,9 +526,9 @@ const WebinarPage: React.FC = () => {
               <div className="w-16 h-16 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mb-6 text-white">
                 <FileImage size={28} />
               </div>
-              <h3 className="oswald text-2xl font-black uppercase mb-4">High-Value Portfolio Strategy</h3>
+              <h3 className="oswald text-2xl font-black uppercase mb-4">Client Conversations</h3>
               <p className="text-gray-400 text-sm leading-relaxed">
-                Learn why standard tutorial renders fail to attract premium jobs, and how to structure process-driven case studies that show you solve real business problems.
+                Get scripts to handle real client pricing questions with absolute confidence, avoiding the panic freeze.
               </p>
             </div>
           </div>
@@ -568,28 +548,28 @@ const WebinarPage: React.FC = () => {
             {[
               {
                 number: "01",
-                title: "Spot Your Core Bottleneck",
-                desc: "Accurately diagnose if your career plateau is due to a skill gap, portfolio gap, visibility gap, reliability gap, or communication gap."
+                title: "Stop Common Mistakes",
+                desc: "Identify and eliminate the 6 common errors that drain creative revenue, such as quoting before understanding or vague scopes."
               },
               {
                 number: "02",
-                title: "Transition to Value-Provider",
-                desc: "Adopt a professional mindset, moving from waiting for task sheets to taking active ownership and solving complex studio problems."
+                title: "Calculate Rates Confidently",
+                desc: "Determine your floor rate and value-based pricing multipliers dynamically for any type of creative client."
               },
               {
                 number: "03",
-                title: "Build Process-Rich Case Studies",
-                desc: "Shift your portfolio strategy from output quantity to process quality, documenting your design path to impress studio directors."
+                title: "Build Professional Proposals",
+                desc: "Shift from sending simple numbers over chat to presenting structured, professional scope and proposal documents."
               },
               {
                 number: "04",
-                title: "Execute Flawless Communication",
-                desc: "Apply clean communication templates, manage critiques professionally, and establish consistency that turns clients into repeat accounts."
+                title: "Manage Scope Creep",
+                desc: "Use clear scope documents and boundaries to prevent unpaid work and keep project boundaries respected."
               },
               {
                 number: "05",
-                title: "Launch a Focused 30-Day Plan",
-                desc: "Leave the masterclass with a customized 30-day action plan that systematically solves your single most critical growth bottleneck."
+                title: "Implement the 6-Stage Quote",
+                desc: "Run a structured quoting process stage-by-stage to transition from a student mindset to a high-value industry professional."
               }
             ].map((item, idx) => (
               <div
@@ -619,7 +599,7 @@ const WebinarPage: React.FC = () => {
             <div>
               <h2 className="oswald text-4xl md:text-5xl font-black uppercase tracking-tighter mb-6">Webinar Curriculum</h2>
               <p className="text-gray-400 mb-8 leading-relaxed">
-                Click through the modules of our 120-minute masterclass curriculum to explore the exact topics, slides, and learning goals covered in each segment.
+                Click through the modules of our 90-minute masterclass curriculum to explore the exact topics, slides, and learning goals covered in each segment.
               </p>
               <button onClick={scrollToForm} className="px-8 py-4 bg-white text-black font-black uppercase tracking-widest rounded hover:bg-gray-200 transition-colors mb-12 cursor-pointer">
                 Register Now
@@ -636,7 +616,7 @@ const WebinarPage: React.FC = () => {
           <div className="lg:col-span-7 space-y-4">
             {WEBINAR_CURRICULUM.map((segment, idx) => {
               const isOpen = expandedSegment === idx;
-              
+
               // Custom icons for the segments to make it visually premium
               let Icon = Award;
               if (idx === 0) Icon = HelpCircle;
@@ -646,24 +626,22 @@ const WebinarPage: React.FC = () => {
               else if (idx === 4) Icon = Eye;
               else if (idx === 5) Icon = Target;
               else if (idx === 6) Icon = MessageSquare;
-              
+
               return (
-                <div 
-                  key={idx} 
-                  className={`border rounded-xl transition-all duration-300 ${
-                    isOpen 
-                      ? "bg-[#FF0000]/5 border-[#FF0000]/40 shadow-[0_0_20px_rgba(255,0,0,0.05)]" 
+                <div
+                  key={idx}
+                  className={`border rounded-xl transition-all duration-300 ${isOpen
+                      ? "bg-[#FF0000]/5 border-[#FF0000]/40 shadow-[0_0_20px_rgba(255,0,0,0.05)]"
                       : "bg-zinc-900/40 border-white/5 hover:border-white/15"
-                  }`}
+                    }`}
                 >
-                  <button 
+                  <button
                     onClick={() => toggleSegment(idx)}
                     className="w-full flex items-center justify-between p-5 text-left focus:outline-none cursor-pointer"
                   >
                     <div className="flex items-center gap-4">
-                      <div className={`w-10 h-10 rounded-lg flex items-center justify-center shrink-0 transition-colors ${
-                        isOpen ? "bg-[#FF0000] text-white" : "bg-white/5 text-gray-400"
-                      }`}>
+                      <div className={`w-10 h-10 rounded-lg flex items-center justify-center shrink-0 transition-colors ${isOpen ? "bg-[#FF0000] text-white" : "bg-white/5 text-gray-400"
+                        }`}>
                         <Icon size={18} />
                       </div>
                       <div>
@@ -680,9 +658,8 @@ const WebinarPage: React.FC = () => {
                     </div>
                   </button>
 
-                  <div className={`overflow-hidden transition-all duration-500 ease-in-out ${
-                    isOpen ? "max-h-[1000px] border-t border-white/5" : "max-h-0"
-                  }`}>
+                  <div className={`overflow-hidden transition-all duration-500 ease-in-out ${isOpen ? "max-h-[1000px] border-t border-white/5" : "max-h-0"
+                    }`}>
                     <div className="p-5 space-y-5">
                       <div className="flex items-start gap-3 bg-white/5 p-4 rounded-lg border border-white/5">
                         <Target size={16} className="text-[#FFD700] shrink-0 mt-0.5" />
@@ -694,9 +671,9 @@ const WebinarPage: React.FC = () => {
 
                       <div>
                         <span className="text-[10px] font-black uppercase tracking-widest text-gray-400 block mb-3">COVERED MODULES & SLIDES</span>
-                        
-                        {/* Render Segment 3's grouped subheadings if it's segment index 3 */}
-                        {idx === 3 ? (
+
+                        {/* Render grouped subheadings if there are multiple subsections */}
+                        {segment.subsections.length > 1 ? (
                           <div className="grid sm:grid-cols-2 gap-4">
                             {segment.subsections.map((sub, sIdx) => (
                               <div key={sIdx} className="bg-white/5 p-4 rounded-lg border border-white/5 flex flex-col justify-between">
@@ -766,7 +743,7 @@ const WebinarPage: React.FC = () => {
         <div className="max-w-3xl mx-auto px-6 relative z-10">
           <h2 className="oswald text-5xl md:text-7xl font-black uppercase tracking-tighter mb-6">Register Today!</h2>
           <p className="text-gray-400 mb-10 max-w-xl mx-auto text-lg">
-            Don't miss out on this opportunity to identify your growth bottlenecks and bridge the gap to high-value design salaries. Secure your spot now.
+            Don't miss out on this opportunity to master a practical pricing system and confidently charge what you're worth. Secure your spot now.
           </p>
           <button onClick={scrollToForm} className="px-10 py-5 bg-[#FF0000] hover:bg-[#CC0000] text-white text-lg font-black uppercase tracking-widest rounded-lg transition-colors shadow-[0_0_30px_rgba(255,0,0,0.3)] cursor-pointer">
             Register Now
